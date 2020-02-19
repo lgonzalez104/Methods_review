@@ -1,0 +1,3665 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/home/rub/Dropbox/Archivos en curso/Sociology Merced/Spring 2020/Grad Stats II/Research Project/Assignment 2/researchassignment2_rub_log20200217.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Feb 2020, 22:58:11
+{txt}
+{com}. use "Restricted_Dataset_ Almeida_Protest_1974_1981.dta", clear
+{txt}
+{com}. . `5c84e79ec5d60e1ee5ee0f8739f1c67f'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. ds, varwidth (32)
+{txt}{col 1}id_key{col 11}violence{col 21}date_qua{col 31}wait_tim{col 41}party_re{col 51}sector{col 61}strike{col 71}demon{col 81}occ_work{col 91}occ_mark{col 101}land_sei{col 111}petition{col 121}kidnap{col 131}hung_str{col 141}pub_stat{col 151}arson_va{col 161}bomb{col 171}occ_town{col 181}propogan{col 191}rob{col 201}type_cla{col 211}object{col 221}interv1{col 231}period
+{col 1}year{col 11}geograph{col 21}date_eve{col 31}location{col 41}no_prese{col 51}source{col 61}march{col 71}occ_chur{col 81}occ_gov{col 91}occup_em{col 101}arm_atta{col 111}pub_gath{col 121}sit_in{col 131}occ_radi{col 141}barricad{col 151}pinta{col 161}prop_bom{col 171}occ_scho{col 181}cut_powe{col 191}two_way{col 201}target{col 211}interval{col 221}ninterv1
+
+{com}. codebook strike
+
+{txt}{hline}
+{res}strike{right:STRIKE}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}byte{txt})
+
+{col 18}range:  [{res}0{txt},{res}1{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}2{col 51}{txt}missing .:  {res}0{txt}/{res}3,017
+
+{txt}{col 13}tabulation:  Freq.  Value
+{col 21}{res}     2,709{col 33}0
+{col 21}       308{col 33}1
+{txt}
+{com}. codebook demon
+
+{txt}{hline}
+{res}demon{right:DEMON}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}byte{txt})
+
+{col 18}range:  [{res}0{txt},{res}1{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}2{col 51}{txt}missing .:  {res}0{txt}/{res}3,017
+
+{txt}{col 13}tabulation:  Freq.  Value
+{col 21}{res}     2,964{col 33}0
+{col 21}        53{col 33}1
+{txt}
+{com}. codebook petition
+
+{txt}{hline}
+{res}petition{right:PETITION}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}byte{txt})
+
+{col 18}range:  [{res}0{txt},{res}1{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}2{col 51}{txt}missing .:  {res}0{txt}/{res}3,017
+
+{txt}{col 13}tabulation:  Freq.  Value
+{col 21}{res}     2,880{col 33}0
+{col 21}       137{col 33}1
+{txt}
+{com}. codebook hung_str
+
+{txt}{hline}
+{res}hung_str{right:HUNG_STR}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}byte{txt})
+
+{col 18}range:  [{res}0{txt},{res}1{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}2{col 51}{txt}missing .:  {res}0{txt}/{res}3,017
+
+{txt}{col 13}tabulation:  Freq.  Value
+{col 21}{res}     3,012{col 33}0
+{col 21}         5{col 33}1
+{txt}
+{com}. codebook violence
+
+{txt}{hline}
+{res}violence{right:VIOLENCE}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}byte{txt})
+
+{col 18}range:  [{res}0{txt},{res}1{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}2{col 51}{txt}missing .:  {res}0{txt}/{res}3,017
+
+{txt}{col 13}tabulation:  Freq.  Value
+{col 21}{res}     1,210{col 33}0
+{col 21}     1,807{col 33}1
+{txt}
+{com}. codebook occ_wor
+
+{txt}{hline}
+{res}occ_work{right:OCC_WORK}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}byte{txt})
+
+{col 18}range:  [{res}0{txt},{res}1{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}2{col 51}{txt}missing .:  {res}0{txt}/{res}3,017
+
+{txt}{col 13}tabulation:  Freq.  Value
+{col 21}{res}     2,950{col 33}0
+{col 21}        67{col 33}1
+{txt}
+{com}. keep id_key violence date_qua sector strike demon hung_str occ_work petition period year geograph date_eve location occ_gov target
+{txt}
+{com}. ds, varwidth (32)
+{txt}{col 1}id_key{col 11}year{col 21}violence{col 31}geograph{col 41}date_qua{col 51}date_eve{col 61}location{col 71}sector{col 81}strike{col 91}demon{col 101}occ_work{col 111}occ_gov{col 121}petition{col 131}hung_str{col 141}target{col 151}period
+
+{com}. . `c6ef61ccb50debf01b24b2273c52a7f5'
+. describe
+
+{txt}Contains data from {res}Restricted_Dataset_ Almeida_Protest_1974_1981.dta
+{txt}  obs:{res}         3,017                          
+{txt} vars:{res}            16                          17 Feb 2020 18:27
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:id_key         }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}ID_KEY{p_end}
+{p 0 48}{bind:year           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}YEAR{p_end}
+{p 0 48}{bind:violence       }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}VIOLENCE{p_end}
+{p 0 48}{bind:geograph       }{txt}{bind: str8    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}GEOGRAPH{p_end}
+{p 0 48}{bind:date_qua       }{txt}{bind: str11   }{bind:{txt}%11s      }{space 1}{bind:         }{bind:  }{res}{res}DATE_QUA{p_end}
+{p 0 48}{bind:date_eve       }{txt}{bind: str11   }{bind:{txt}%11s      }{space 1}{bind:         }{bind:  }{res}{res}DATE_EVE{p_end}
+{p 0 48}{bind:location       }{txt}{bind: str42   }{bind:{txt}%42s      }{space 1}{bind:         }{bind:  }{res}{res}LOCATION{p_end}
+{p 0 48}{bind:sector         }{txt}{bind: str26   }{bind:{txt}%26s      }{space 1}{bind:         }{bind:  }{res}{res}SECTOR{p_end}
+{p 0 48}{bind:strike         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}STRIKE{p_end}
+{p 0 48}{bind:demon          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}DEMON{p_end}
+{p 0 48}{bind:occ_work       }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}OCC_WORK{p_end}
+{p 0 48}{bind:occ_gov        }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}OCC_GOV{p_end}
+{p 0 48}{bind:petition       }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}PETITION{p_end}
+{p 0 48}{bind:hung_str       }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}HUNG_STR{p_end}
+{p 0 48}{bind:target         }{txt}{bind: str7    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}TARGET{p_end}
+{p 0 48}{bind:period         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}PERIOD{p_end}
+{txt}{hline}
+Sorted by: 
+{res}     Note: Dataset has changed since last saved.
+
+{com}. `0d16430e9f0aa8879ba9dac2540543fc'
+. _StataKernelHead id_key year geograph location sector strike petition using /home/rub/.stata_kernel_cache/data_head.csv , n_default(10)
+{txt}
+     {c TLC}{hline 8}{c -}{hline 6}{c -}{hline 10}{c -}{hline 28}{c -}{hline 21}{c -}{hline 8}{c -}{hline 10}{c TRC}
+     {c |} {res}id_key   year   geograph                     location                sector   strike   petition {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 6}{c -}{hline 10}{c -}{hline 28}{c -}{hline 21}{c -}{hline 8}{c -}{hline 10}{c RT}
+  1. {c |} {res}  1135     74       1.00   San Salvador, San Salvador             Guerrilla        0          0 {txt}{c |}
+  2. {c |} {res}  1136     74       1.00   San Salvador, San Salvador        school parents        0          1 {txt}{c |}
+  3. {c |} {res}  1137     74       2.00    Panchimalco, San Salvador       local residents        0          0 {txt}{c |}
+  4. {c |} {res}  1138     74       1.00   San Salvador, San Salvador   university students        1          1 {txt}{c |}
+  5. {c |} {res}  1139     74       1.00       San Miguel, San Miguel                              0          0 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 6}{c -}{hline 10}{c -}{hline 28}{c -}{hline 21}{c -}{hline 8}{c -}{hline 10}{c RT}
+  6. {c |} {res}  1140     74       1.00         Santa Ana, Santa Ana               workers        1          0 {txt}{c |}
+  7. {c |} {res}  1141     74       1.00       San Miguel, San Miguel             Guerrilla        0          0 {txt}{c |}
+  8. {c |} {res}  1142     74       1.00         Santa Ana, Santa Ana             Guerrilla        0          0 {txt}{c |}
+  9. {c |} {res}  1143     74       1.00   San Salvador, San Salvador             Guerrilla        0          0 {txt}{c |}
+ 10. {c |} {res}  1144     74       1.00   San Salvador, San Salvador             Guerrilla        0          0 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 6}{c -}{hline 10}{c -}{hline 28}{c -}{hline 21}{c -}{hline 8}{c -}{hline 10}{c BRC}
+
+{com}. `392845358b2135dfe218c82cc73652e5'
+. label var strike "Strikes in El Salvador"
+
+. `a118c433b0b6bef77247a275093d5fce'
+. tab year if strike==1 & occ_gov==1
+
+       {txt}YEAR {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         80 {c |}{res}          1      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}          1      100.00
+
+{com}. `004b4ea143a12abd6184852e248d0335'
+. collapse (first) geograph (sum) strike occ_work occ_gov, by (location violence sector year target)
+
+. `d44a7197f7b3e9562185a15d15b9d85b'
+. cap noi graph bar strike , over (year)
+{res}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph5.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph5.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `710bae199d8f7e2ae63de3d554699c22'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. tab year, m
+
+       {txt}YEAR {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         74 {c |}{res}         42        2.59        2.59
+{txt}         75 {c |}{res}         25        1.54        4.13
+{txt}         76 {c |}{res}         47        2.90        7.03
+{txt}         77 {c |}{res}         77        4.75       11.78
+{txt}         78 {c |}{res}        106        6.54       18.32
+{txt}         79 {c |}{res}        238       14.68       33.00
+{txt}         80 {c |}{res}        496       30.60       63.60
+{txt}         81 {c |}{res}        590       36.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. tab strike, m
+
+      {txt}(sum) {c |}
+     strike {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,481       91.36       91.36
+{txt}          1 {c |}{res}        108        6.66       98.03
+{txt}          2 {c |}{res}         17        1.05       99.07
+{txt}          3 {c |}{res}          2        0.12       99.20
+{txt}          4 {c |}{res}          5        0.31       99.51
+{txt}          5 {c |}{res}          1        0.06       99.57
+{txt}          6 {c |}{res}          1        0.06       99.63
+{txt}          9 {c |}{res}          1        0.06       99.69
+{txt}         13 {c |}{res}          1        0.06       99.75
+{txt}         20 {c |}{res}          1        0.06       99.81
+{txt}         21 {c |}{res}          1        0.06       99.88
+{txt}         24 {c |}{res}          1        0.06       99.94
+{txt}         42 {c |}{res}          1        0.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. tab occ_work, m
+
+      {txt}(sum) {c |}
+   occ_work {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,587       97.90       97.90
+{txt}          1 {c |}{res}         26        1.60       99.51
+{txt}          2 {c |}{res}          4        0.25       99.75
+{txt}          4 {c |}{res}          1        0.06       99.81
+{txt}          5 {c |}{res}          1        0.06       99.88
+{txt}          7 {c |}{res}          1        0.06       99.94
+{txt}         17 {c |}{res}          1        0.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. tab occ_gov, m
+
+      {txt}(sum) {c |}
+    occ_gov {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,602       98.83       98.83
+{txt}          1 {c |}{res}         17        1.05       99.88
+{txt}          3 {c |}{res}          1        0.06       99.94
+{txt}         18 {c |}{res}          1        0.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. tab violence, m
+
+   {txt}VIOLENCE {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        519       32.02       32.02
+{txt}          1 {c |}{res}      1,102       67.98      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. list location in 1/15
+{txt}
+     {c TLC}{hline 23}{c TRC}
+     {c |} {res}             location {txt}{c |}
+     {c LT}{hline 23}{c RT}
+  1. {c |} {res}                      {txt}{c |}
+  2. {c |} {res}                      {txt}{c |}
+  3. {c |} {res}                      {txt}{c |}
+  4. {c |} {res}                      {txt}{c |}
+  5. {c |} {res}                      {txt}{c |}
+     {c LT}{hline 23}{c RT}
+  6. {c |} {res}                      {txt}{c |}
+  7. {c |} {res}                      {txt}{c |}
+  8. {c |} {res}                      {txt}{c |}
+  9. {c |} {res}                      {txt}{c |}
+ 10. {c |} {res}                      {txt}{c |}
+     {c LT}{hline 23}{c RT}
+ 11. {c |} {res}                      {txt}{c |}
+ 12. {c |} {res}                      {txt}{c |}
+ 13. {c |} {res}Acahuapa, San Vicente {txt}{c |}
+ 14. {c |} {res}  Acajutla, Sonsonate {txt}{c |}
+ 15. {c |} {res}  Acajutla, Sonsonate {txt}{c |}
+     {c BLC}{hline 23}{c BRC}
+
+{com}. list geograph in 1/15
+{txt}
+     {c TLC}{hline 10}{c TRC}
+     {c |} {res}geograph {txt}{c |}
+     {c LT}{hline 10}{c RT}
+  1. {c |} {res} #¡NULO! {txt}{c |}
+  2. {c |} {res}    3.00 {txt}{c |}
+  3. {c |} {res}    3.00 {txt}{c |}
+  4. {c |} {res}    1.00 {txt}{c |}
+  5. {c |} {res} #¡NULO! {txt}{c |}
+     {c LT}{hline 10}{c RT}
+  6. {c |} {res} #¡NULO! {txt}{c |}
+  7. {c |} {res} #¡NULO! {txt}{c |}
+  8. {c |} {res}    3.00 {txt}{c |}
+  9. {c |} {res} #¡NULO! {txt}{c |}
+ 10. {c |} {res} #¡NULO! {txt}{c |}
+     {c LT}{hline 10}{c RT}
+ 11. {c |} {res} #¡NULO! {txt}{c |}
+ 12. {c |} {res}    3.00 {txt}{c |}
+ 13. {c |} {res}    3.00 {txt}{c |}
+ 14. {c |} {res}    2.00 {txt}{c |}
+ 15. {c |} {res}    2.00 {txt}{c |}
+     {c BLC}{hline 10}{c BRC}
+
+{com}. list sector in 1/15
+{txt}
+     {c TLC}{hline 11}{c TRC}
+     {c |} {res}   sector {txt}{c |}
+     {c LT}{hline 11}{c RT}
+  1. {c |} {res}          {txt}{c |}
+  2. {c |} {res} Peasants {txt}{c |}
+  3. {c |} {res} peasants {txt}{c |}
+  4. {c |} {res}  workers {txt}{c |}
+  5. {c |} {res}Guerrilla {txt}{c |}
+     {c LT}{hline 11}{c RT}
+  6. {c |} {res}Guerrilla {txt}{c |}
+  7. {c |} {res}Guerrilla {txt}{c |}
+  8. {c |} {res}Guerrilla {txt}{c |}
+  9. {c |} {res}Guerrilla {txt}{c |}
+ 10. {c |} {res}Guerrilla {txt}{c |}
+     {c LT}{hline 11}{c RT}
+ 11. {c |} {res}Guerrilla {txt}{c |}
+ 12. {c |} {res}guerrilla {txt}{c |}
+ 13. {c |} {res}Guerrilla {txt}{c |}
+ 14. {c |} {res}fishermen {txt}{c |}
+ 15. {c |} {res} peasants {txt}{c |}
+     {c BLC}{hline 11}{c BRC}
+
+{com}. list target in 1/15
+{txt}
+     {c TLC}{hline 8}{c TRC}
+     {c |} {res}target {txt}{c |}
+     {c LT}{hline 8}{c RT}
+  1. {c |} {res}     S {txt}{c |}
+  2. {c |} {res}     C {txt}{c |}
+  3. {c |} {res}     C {txt}{c |}
+  4. {c |} {res}     G {txt}{c |}
+  5. {c |} {res}     C {txt}{c |}
+     {c LT}{hline 8}{c RT}
+  6. {c |} {res}       {txt}{c |}
+  7. {c |} {res}     C {txt}{c |}
+  8. {c |} {res}  C, G {txt}{c |}
+  9. {c |} {res}     C {txt}{c |}
+ 10. {c |} {res}     S {txt}{c |}
+     {c LT}{hline 8}{c RT}
+ 11. {c |} {res}     L {txt}{c |}
+ 12. {c |} {res}     S {txt}{c |}
+ 13. {c |} {res}     G {txt}{c |}
+ 14. {c |} {res}     G {txt}{c |}
+ 15. {c |} {res}     C {txt}{c |}
+     {c BLC}{hline 8}{c BRC}
+
+{com}. . `c4abb04d90ec3fa06b8a2b7befc4b084'
+. sum year strike occ_work occ_gov violence location geograph sector target
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}year {c |}{res}      1,621    79.59531    1.679308         74         81
+{txt}{space 6}strike {c |}{res}      1,621    .1900062    1.512801          0         42
+{txt}{space 4}occ_work {c |}{res}      1,621    .0413325    .5081015          0         17
+{txt}{space 5}occ_gov {c |}{res}      1,621    .0234423    .4642192          0         18
+{txt}{space 4}violence {c |}{res}      1,621    .6798273    .4666867          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 4}location {c |}{res}          0
+{txt}{space 4}geograph {c |}{res}          0
+{txt}{space 6}sector {c |}{res}          0
+{txt}{space 6}target {c |}{res}          0
+
+{com}. `04edeae1639b71e04f7f6b385a01a439'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in strike occ_work  {c -(}
+{txt}  2{com}. sum  `var'
+{txt}  3{com}. cap noi     histogram `var' if `var'<10, bin(10) title(dependent variables) name(`var', replace)
+{txt}  4{com}. if _rc == 0 {c -(}
+{txt}  5{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}  6{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}  7{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+{txt}  8{com}. {c )-}            
+{txt}  9{com}. {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}strike {c |}{res}      1,621    .1900062    1.512801          0         42
+{txt}(bin={res}10{txt}, start={res}0{txt}, width={res}.9{txt})
+{res}{txt}(file /home/rub/.stata_kernel_cache/graph6.svg written in SVG format)
+(file /home/rub/.stata_kernel_cache/graph6.pdf written in PDF format)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}occ_work {c |}{res}      1,621    .0413325    .5081015          0         17
+{txt}(bin={res}10{txt}, start={res}0{txt}, width={res}.7{txt})
+{res}{txt}(file /home/rub/.stata_kernel_cache/graph7.svg written in SVG format)
+(file /home/rub/.stata_kernel_cache/graph7.pdf written in PDF format)
+
+{com}. . `55ea848990ba6691eb13cb2723d15f19'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in location violence  {c -(}
+{txt}  2{com}. sum  `var'
+{txt}  3{com}. cap noi     histogram `var' if `var'<10, bin(10) title(independent variable) name(`var', replace)
+{txt}  4{com}. if _rc == 0 {c -(}
+{txt}  5{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}  6{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}  7{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+{txt}  8{com}. {c )-}            
+{txt}  9{com}. {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}location {c |}{res}          0
+{err}type mismatch
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}violence {c |}{res}      1,621    .6798273    .4666867          0          1
+{txt}(bin={res}10{txt}, start={res}0{txt}, width={res}.1{txt})
+{res}{txt}(file /home/rub/.stata_kernel_cache/graph8.svg written in SVG format)
+(file /home/rub/.stata_kernel_cache/graph8.pdf written in PDF format)
+
+{com}. . `d4b0fc91eadc8e8b0bd037873953f857'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in location violence geograph target  {c -(}
+{txt}  2{com}. sum  `var'
+{txt}  3{com}.     tab `var' if `var'<10, bin(10) title(independent variable) name(`var', replace)
+{txt}  4{com}. {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}location {c |}{res}          0
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+{search r(109), local:r(109);}
+
+{com}. `667ce42147d4bf88455f9f8a2b3240d5'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in year location violence geograph target  {c -(}
+{txt}  2{com}. sum  `var'
+{txt}  3{com}.     tab `var' if `var'<10, bin(10) title(independent variable) name(`var', replace)
+{txt}  4{com}. {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}year {c |}{res}      1,621    79.59531    1.679308         74         81
+{err}option {bf:bin()} not allowed
+{txt}{search r(198), local:r(198);}
+{search r(198), local:r(198);}
+
+{com}. `c2ab56713dbce13f0ea0c69411370481'
+. table year target, c(mean interest_fte) format(%12.0fc)
+{err}variable {bf}interest_fte{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. `abe78991832381c78769ab91c51aa5ab'
+. table year target, c(mean target) format(%12.0fc)
+{err}'target' found where numeric variable expected
+{txt}{search r(7), local:r(7);}
+
+{com}. `26b5adc239ac8a38bcb0a7bd70d4c5ca'
+. table year target, c(mean) format(%12.0fc)
+{err}mean invalid or requires argument
+{txt}{search r(198), local:r(198);}
+
+{com}. `e76b64ecf6bbcb50392dc930c9c1f3dd'
+. table target
+
+{txt}{hline 10}{c TT}{hline 11}
+   TARGET {c |}      Freq.
+{hline 10}{c +}{hline 11}
+        C {c |}        {res}169
+     {txt}C, G {c |}          {res}6
+     {txt}C, M {c |}          {res}6
+     {txt}C, S {c |}          {res}5
+        {txt}G {c |}        {res}397
+     {txt}G, C {c |}          {res}4
+  {txt}G, M, C {c |}          {res}1
+    {txt}G, Pr {c |}          {res}1
+     {txt}G, S {c |}         {res}14
+        {txt}L {c |}        {res}107
+     {txt}L, C {c |}          {res}1
+     {txt}L, G {c |}          {res}1
+     {txt}L, M {c |}          {res}1
+     {txt}L, S {c |}         {res}15
+        {txt}M {c |}         {res}41
+     {txt}M, C {c |}          {res}3
+     {txt}M, G {c |}          {res}4
+        {txt}O {c |}         {res}12
+       {txt}Pa {c |}         {res}13
+   {txt}Pa,  G {c |}          {res}2
+       {txt}Pr {c |}          {res}8
+    {txt}Pr, G {c |}          {res}8
+        {txt}S {c |}        {res}432
+     {txt}S, C {c |}          {res}2
+     {txt}S, G {c |}          {res}8
+     {txt}S, L {c |}          {res}3
+        {txt}g {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+
+{com}. `d9c9cd0570d59b87dd07a242e75ba3e2'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in strike occ_work  {c -(}
+{txt}  2{com}. sum `var'
+{txt}  3{com}.    tab `var', detail
+{txt}  4{com}. {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}strike {c |}{res}      1,621    .1900062    1.512801          0         42
+{err}option {bf:detail} not allowed
+{txt}{search r(198), local:r(198);}
+{search r(198), local:r(198);}
+
+{com}. `3686a3bdbca408373b8eefef6d3e47fa'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in strike occ_work  {c -(}
+{txt}  2{com}. tab `var'
+{txt}  3{com}. {c )-}
+
+      {txt}(sum) {c |}
+     strike {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,481       91.36       91.36
+{txt}          1 {c |}{res}        108        6.66       98.03
+{txt}          2 {c |}{res}         17        1.05       99.07
+{txt}          3 {c |}{res}          2        0.12       99.20
+{txt}          4 {c |}{res}          5        0.31       99.51
+{txt}          5 {c |}{res}          1        0.06       99.57
+{txt}          6 {c |}{res}          1        0.06       99.63
+{txt}          9 {c |}{res}          1        0.06       99.69
+{txt}         13 {c |}{res}          1        0.06       99.75
+{txt}         20 {c |}{res}          1        0.06       99.81
+{txt}         21 {c |}{res}          1        0.06       99.88
+{txt}         24 {c |}{res}          1        0.06       99.94
+{txt}         42 {c |}{res}          1        0.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+
+      {txt}(sum) {c |}
+   occ_work {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,587       97.90       97.90
+{txt}          1 {c |}{res}         26        1.60       99.51
+{txt}          2 {c |}{res}          4        0.25       99.75
+{txt}          4 {c |}{res}          1        0.06       99.81
+{txt}          5 {c |}{res}          1        0.06       99.88
+{txt}          7 {c |}{res}          1        0.06       99.94
+{txt}         17 {c |}{res}          1        0.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. . `0eb28c226ac36301dc2ebc0778013623'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in location target  {c -(}
+{txt}  2{com}. tab `var'
+{txt}  3{com}. {c )-}
+
+                               {txt}LOCATION {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Acahuapa, San Vicente {c |}{res}          1        0.06        0.06
+{txt}                    Acajutla, Sonsonate {c |}{res}         10        0.62        0.68
+{txt}                Achichilco, San Vicente {c |}{res}          1        0.06        0.75
+{txt}      Achichilco, Tecoluca, San Vicente {c |}{res}          1        0.06        0.81
+{txt}            Agua Caliente, Chalatenango {c |}{res}          1        0.06        0.87
+{txt} Agua Calientes, Soyapango, San Salvado {c |}{res}          1        0.06        0.93
+{txt}             Aguacaliente, Chalatenango {c |}{res}          1        0.06        0.99
+{txt}   Aguacayo, Santo Domingo, San Vicente {c |}{res}          1        0.06        1.06
+{txt}                Aguilares, San Salvador {c |}{res}         16        0.99        2.05
+{txt}        Ahuacate, Guazapa, San Salvador {c |}{res}          1        0.06        2.11
+{txt}                             Ahuachapan {c |}{res}          2        0.12        2.24
+{txt}                 Ahuachapan, Ahuachapan {c |}{res}          7        0.44        2.67
+{txt}                 Aldeitas, Chalatenango {c |}{res}          1        0.06        2.73
+{txt}                      Alegria, Usulutan {c |}{res}          1        0.06        2.80
+{txt}               Almendrito, Chalatenango {c |}{res}          1        0.06        2.86
+{txt}                    Amapolita, La Union {c |}{res}          1        0.06        2.92
+{txt}                 Amapulapa, San Vicente {c |}{res}          1        0.06        2.98
+{txt}                    Amatepec, Santa Ana {c |}{res}          1        0.06        3.05
+{txt}                     Anamoros, La Union {c |}{res}          1        0.06        3.11
+{txt}         Antiguo Cuscatlan, La Libertad {c |}{res}          2        0.12        3.23
+{txt}               Apastapeque, San Vicente {c |}{res}          1        0.06        3.29
+{txt}                 Apastepeque, San Vicen {c |}{res}          1        0.06        3.36
+{txt}               Apastepeque, San Vicente {c |}{res}          1        0.06        3.42
+{txt}                    Apopa, San Salvador {c |}{res}         13        0.81        4.23
+{txt}                    Apulo, San Salvador {c |}{res}          1        0.06        4.29
+{txt}                  Arcatao, Chalatenango {c |}{res}          7        0.44        4.72
+{txt}                     Armenia, Sonsonate {c |}{res}          8        0.50        5.22
+{txt}                       Ateos, Sonsonate {c |}{res}          1        0.06        5.28
+{txt}                                Aticoyo {c |}{res}          1        0.06        5.34
+{txt}                             Atiquizaya {c |}{res}          1        0.06        5.41
+{txt}                 Atiquizaya, Ahuachapan {c |}{res}          2        0.12        5.53
+{txt}                              Auachapan {c |}{res}          2        0.12        5.66
+{txt}            Ayutuxtepeque, San Salvador {c |}{res}         11        0.68        6.34
+{txt}                   Azacualapa, Ilabasco {c |}{res}          1        0.06        6.40
+{txt}                                Barrial {c |}{res}          1        0.06        6.46
+{txt}                       Berlin, Usulutan {c |}{res}          3        0.19        6.65
+{txt}          Bermuda, Suchitoto, Cuscatlan {c |}{res}          1        0.06        6.71
+{txt}                       Border Guatemala {c |}{res}          1        0.06        6.77
+{txt}                            Buena Vista {c |}{res}          1        0.06        6.84
+{txt}                                Cabanas {c |}{res}          2        0.12        6.96
+{txt}                     Cacaopera, Morazan {c |}{res}          1        0.06        7.02
+{txt}                     Cacoapera, Morazan {c |}{res}          2        0.12        7.15
+{txt}                   California, Usulutan {c |}{res}          1        0.06        7.21
+{txt}                Cancasque, Chalatenango {c |}{res}          2        0.12        7.33
+{txt}                        Canton Amatillo {c |}{res}          1        0.06        7.40
+{txt}                           Canton Lempa {c |}{res}          1        0.06        7.46
+{txt}                     Capulin, Santa Ana {c |}{res}          1        0.06        7.52
+{txt}                 Cara Sucia, Ahuachapan {c |}{res}          1        0.06        7.58
+{txt}                                Caretal {c |}{res}          1        0.06        7.64
+{txt}                   Carretera El Litoral {c |}{res}          1        0.06        7.71
+{txt}                      Carretera Litoral {c |}{res}          1        0.06        7.77
+{txt}   Ceiba Gacha, Jiquilisco, San Vicente {c |}{res}          1        0.06        7.83
+{txt}                           Central Roma {c |}{res}          1        0.06        7.89
+{txt}                     Ceretal, Santa Ana {c |}{res}          1        0.06        7.96
+{txt}                         Cerro Colorado {c |}{res}          1        0.06        8.02
+{txt}      Cerro El Junquillo de San Antonio {c |}{res}          1        0.06        8.08
+{txt}              Cerro El Zope, San Miguel {c |}{res}          1        0.06        8.14
+{txt}                           Cerro Grande {c |}{res}          1        0.06        8.20
+{txt}            Cerro Los Gatos, San Miguel {c |}{res}          1        0.06        8.27
+{txt}             Cerro Ramirez, San Vicente {c |}{res}          1        0.06        8.33
+{txt}                 Cerro Verde, Sonsonate {c |}{res}          1        0.06        8.39
+{txt}                       Cerro de Guazapa {c |}{res}          1        0.06        8.45
+{txt}                          Cerron Grande {c |}{res}          2        0.12        8.58
+{txt}                 Cerros Nariz de Diablo {c |}{res}          1        0.06        8.64
+{txt}                           Chalatenango {c |}{res}          3        0.19        8.83
+{txt}             Chalatenango, Chalatenango {c |}{res}          8        0.50        9.32
+{txt}             Chalatenango, Chaletenango {c |}{res}          3        0.19        9.51
+{txt}                  Chalchuapa, Santa Ana {c |}{res}          8        0.50       10.01
+{txt}          Chanqueso, Suchitoto, Cabanas {c |}{res}          1        0.06       10.07
+{txt}                Chapeltique, San Miguel {c |}{res}          2        0.12       10.19
+{txt}                   Chililapa, Auachapan {c |}{res}          1        0.06       10.25
+{txt}             Chinchontepec, San Vicente {c |}{res}          2        0.12       10.38
+{txt}                 Chirilagua, San Miguel {c |}{res}          1        0.06       10.44
+{txt}                      Cinquera, Cabanas {c |}{res}          7        0.44       10.88
+{txt}          Cinquera-Tejutepeque, Cabanas {c |}{res}          1        0.06       10.94
+{txt}                       Ciquera, Cabanas {c |}{res}          1        0.06       11.00
+{txt}                   Citala, Chalatenango {c |}{res}          1        0.06       11.06
+{txt}               Ciudad Arce, La Libertad {c |}{res}          3        0.19       11.25
+{txt}             Ciudad Barrios, San Miguel {c |}{res}          4        0.25       11.50
+{txt}           Ciudad Credisa, San Salvador {c |}{res}          1        0.06       11.56
+{txt}           Ciudad Delgado, San Salvador {c |}{res}         14        0.87       12.43
+{txt}            Ciudad Merliot, La Libertad {c |}{res}          2        0.12       12.55
+{txt}          Ciudad Satelite, San Salvador {c |}{res}          1        0.06       12.62
+{txt}         Ciudad Sattelite, San Salvador {c |}{res}          1        0.06       12.68
+{txt}                        Ciudad, Delgado {c |}{res}          1        0.06       12.74
+{txt}                  Coatepeque, Santa Ana {c |}{res}          4        0.25       12.99
+{txt}                 Cojutepeque, Cuscatlan {c |}{res}         11        0.68       13.67
+{txt}                     Colon, La Libertad {c |}{res}          1        0.06       13.74
+{txt}                       Comalapa, La Paz {c |}{res}          1        0.06       13.80
+{txt}                 Comasagua, La Libertad {c |}{res}          1        0.06       13.86
+{txt}                             Concepcion {c |}{res}          1        0.06       13.92
+{txt}                      Concepcion Batres {c |}{res}          1        0.06       13.98
+{txt} Concepcion Quezaltepeque, Chalatenango {c |}{res}          1        0.06       14.05
+{txt}        Concepcion de Oriente, La Union {c |}{res}          1        0.06       14.11
+{txt}                    Conchagua, La Union {c |}{res}          3        0.19       14.29
+{txt}       Copalchin, Tenancingo, Cuscatlan {c |}{res}          1        0.06       14.36
+{txt}                       Corinto, Morazan {c |}{res}          2        0.12       14.48
+{txt}                                Corosal {c |}{res}          1        0.06       14.54
+{txt}                           Corral Viejo {c |}{res}          1        0.06       14.61
+{txt}                             Cruz Verde {c |}{res}          1        0.06       14.67
+{txt}      Cujucuyo, Texistepeque, Santa Ana {c |}{res}          1        0.06       14.73
+{txt}             Cupinto, Olocuilta, La Paz {c |}{res}          1        0.06       14.79
+{txt}                                 Curure {c |}{res}          1        0.06       14.85
+{txt}            Cuscatancingo, San Salvador {c |}{res}         12        0.75       15.60
+{txt}             Cutumay Camones, Santa Ana {c |}{res}          2        0.12       15.72
+{txt}        Delicias de Concepcion, Morazan {c |}{res}          1        0.06       15.79
+{txt}         Dulce Nombre de Maria, Chalate {c |}{res}          1        0.06       15.85
+{txt}    Dulce nombre de Maria, Chalatenango {c |}{res}          3        0.19       16.03
+{txt}                                El Arco {c |}{res}          1        0.06       16.10
+{txt}         El Arco, Tecoluca, San Vicente {c |}{res}          1        0.06       16.16
+{txt}                   El Carmen, Cuscatlan {c |}{res}          2        0.12       16.28
+{txt}                    El Carmen, La Union {c |}{res}          1        0.06       16.35
+{txt}  El Carrizal de Santa Maria Ostuma, La {c |}{res}          1        0.06       16.41
+{txt}     El Carrizal, Tejutla, Chalatenango {c |}{res}          2        0.12       16.53
+{txt}   El Carrizo, Apastepeque, San Vicente {c |}{res}          1        0.06       16.59
+{txt}                              El Cerron {c |}{res}          1        0.06       16.66
+{txt}                    El Congo, Santa Ana {c |}{res}          2        0.12       16.78
+{txt}                     El Copinal, La Paz {c |}{res}          1        0.06       16.84
+{txt}               El Coyolito, San Vicente {c |}{res}          1        0.06       16.90
+{txt}                    El Cuco, San Miguel {c |}{res}          1        0.06       16.97
+{txt}                 El Cujucoyo, Santa Ana {c |}{res}          1        0.06       17.03
+{txt}                 El Divisadero, Morazan {c |}{res}          1        0.06       17.09
+{txt}         El Esteron, Intipuca, La Union {c |}{res}          1        0.06       17.15
+{txt}               El Guayabal, San Vicente {c |}{res}          2        0.12       17.28
+{txt}                 El Guayabo, San Miguel {c |}{res}          1        0.06       17.34
+{txt}   El Huizcoyal, Sensuntepeque, Cabanas {c |}{res}          1        0.06       17.40
+{txt}                El Jicaro, Chalatenango {c |}{res}          1        0.06       17.46
+{txt}                     El Jute, Santa Ana {c |}{res}          1        0.06       17.53
+{txt}               El Paisnal, San Salvador {c |}{res}          4        0.25       17.78
+{txt} El Papaturro, Aguacayo, Suchitoto, cus {c |}{res}          1        0.06       17.84
+{txt}               El Paraiso, Chalatenango {c |}{res}          1        0.06       17.90
+{txt}                El Paraiso, San Vicente {c |}{res}          1        0.06       17.96
+{txt}                   El Paraiso, Usulutan {c |}{res}          1        0.06       18.02
+{txt}        El Pepeto, Soyapango, Soyapango {c |}{res}          1        0.06       18.09
+{txt}                             El Playon, {c |}{res}          1        0.06       18.15
+{txt}                 El Playon, San Vicente {c |}{res}          2        0.12       18.27
+{txt}           El Puente Negro, San Vicente {c |}{res}          1        0.06       18.33
+{txt}                           El Rio Jiboa {c |}{res}          1        0.06       18.40
+{txt}        El Rodeo, Guazapa, San Salvador {c |}{res}          1        0.06       18.46
+{txt} El RodeoSan Pedro Perulapan, Cuscatlan {c |}{res}          1        0.06       18.52
+{txt}                    El Rosario, Morazan {c |}{res}          1        0.06       18.58
+{txt}                             El Salitre {c |}{res}          1        0.06       18.65
+{txt}                 El Semillero, Usulutan {c |}{res}          1        0.06       18.71
+{txt}       El Shunte, Sensutepeque, Cabanas {c |}{res}          1        0.06       18.77
+{txt}                               El Sitio {c |}{res}          1        0.06       18.83
+{txt}     El Sitio, Puerto Triunfo, Usulutan {c |}{res}          1        0.06       18.89
+{txt}             El Tamarindo, San Salvador {c |}{res}          1        0.06       18.96
+{txt}                El Transito, San Miguel {c |}{res}          2        0.12       19.08
+{txt}                           El Trapichon {c |}{res}          1        0.06       19.14
+{txt}                   El Triunfo, Usulutan {c |}{res}          1        0.06       19.20
+{txt}             El Tule, Cinquera, Cabanas {c |}{res}          1        0.06       19.27
+{txt}                     El Zapote, Cabanas {c |}{res}          1        0.06       19.33
+{txt} EsperanzSan Pedro Perulapan, Cuscatlan {c |}{res}          1        0.06       19.39
+{txt}                            Estanzuelas {c |}{res}          1        0.06       19.45
+{txt} Estero de Jaltepeque, La Herradura, La {c |}{res}          1        0.06       19.52
+{txt}         Finca San Antonio, San Vicente {c |}{res}          1        0.06       19.58
+{txt}                   Garita, San Salvador {c |}{res}          1        0.06       19.64
+{txt}                      Gavilan, La Union {c |}{res}          1        0.06       19.70
+{txt}                        Gotera, Morazan {c |}{res}          6        0.37       20.07
+{txt}        Granada de Jiquilisco, Usulutan {c |}{res}          1        0.06       20.14
+{txt}         Guacayo, Tecoluca, San Vicente {c |}{res}          1        0.06       20.20
+{txt}                 Guadalupe, San Vicente {c |}{res}          3        0.19       20.39
+{txt}                                Guajoyo {c |}{res}          1        0.06       20.45
+{txt}         Guajoyo, Tecoluca, San Vicente {c |}{res}          1        0.06       20.51
+{txt}                              Guarnecia {c |}{res}          1        0.06       20.57
+{txt}     Guarnesia, Texistepeque, Santa Ana {c |}{res}          1        0.06       20.63
+{txt}                Guatemala, San Salvador {c |}{res}          1        0.06       20.70
+{txt}                       Guayaba, Cabanas {c |}{res}          1        0.06       20.76
+{txt}                               Guayabal {c |}{res}          2        0.12       20.88
+{txt}                  Guazapa, San Salvador {c |}{res}          7        0.44       21.32
+{txt}               Hacienda Canoa, Usulutan {c |}{res}          1        0.06       21.38
+{txt}                     Hacienda El Corral {c |}{res}          1        0.06       21.44
+{txt}                  Hacienda Las Mercedes {c |}{res}          1        0.06       21.50
+{txt}                  Hacienda Los Horcones {c |}{res}          1        0.06       21.57
+{txt}  Hacienda Malacatoya, Zacatecoluca, La {c |}{res}          1        0.06       21.63
+{txt}          Hacienda Mechotique, Usulutan {c |}{res}          1        0.06       21.69
+{txt}          Hacienda Miramar, San Vicente {c |}{res}          1        0.06       21.75
+{txt}                  Hacienda Nancuchiname {c |}{res}          1        0.06       21.81
+{txt}      Hacienda Penarelapa, Chalatenango {c |}{res}          2        0.12       21.94
+{txt}                 Hacienda San Francisco {c |}{res}          1        0.06       22.00
+{txt}                    Hacienda Suchinango {c |}{res}          1        0.06       22.06
+{txt}                         Hacienda Vieja {c |}{res}          1        0.06       22.13
+{txt}                 Hato Nuevo, San Miguel {c |}{res}          1        0.06       22.19
+{txt}                            IRCA bridge {c |}{res}          1        0.06       22.25
+{txt}                     Illabasco, Cabanas {c |}{res}          3        0.19       22.44
+{txt}                Illapango, San Salvador {c |}{res}          1        0.06       22.50
+{txt}                Illopango, San Salvador {c |}{res}          3        0.19       22.68
+{txt}                      Ilobasco, Cabanas {c |}{res}          2        0.12       22.81
+{txt}                     Ilobassco, Cabanas {c |}{res}          1        0.06       22.87
+{txt}                 Ilopango, San Salvador {c |}{res}          6        0.37       23.24
+{txt}                      Ingenio La Cabana {c |}{res}          1        0.06       23.31
+{txt}                   Injiboa, San Vicente {c |}{res}          2        0.12       23.43
+{txt}                     Intipuca, La Union {c |}{res}          1        0.06       23.49
+{txt}                                Istahua {c |}{res}          1        0.06       23.56
+{txt}                      Izalco, Sonsonate {c |}{res}          3        0.19       23.74
+{txt}                     Jaltepeque, La Paz {c |}{res}          1        0.06       23.80
+{txt}    Jayaque, San Marcos Lempa, Usulutan {c |}{res}          1        0.06       23.87
+{txt}                                 Jiboa, {c |}{res}          1        0.06       23.93
+{txt}                              Jicalapa, {c |}{res}          1        0.06       23.99
+{txt}                   Jiquilisco, Usulutan {c |}{res}          5        0.31       24.30
+{txt}                       Joateca, Morazan {c |}{res}          2        0.12       24.43
+{txt}                            Jocoaitique {c |}{res}          1        0.06       24.49
+{txt}                   Jocoaitique, Morazan {c |}{res}          2        0.12       24.61
+{txt}                        Jocoro, Morazan {c |}{res}          1        0.06       24.67
+{txt}          Jocotillo, Cacaopera, Morazan {c |}{res}          1        0.06       24.74
+{txt}                            Joya Grande {c |}{res}          1        0.06       24.80
+{txt}                                Jucuapa {c |}{res}          1        0.06       24.86
+{txt}                               Jucuaran {c |}{res}          1        0.06       24.92
+{txt}                    Jujutla, Ahuachapan {c |}{res}          1        0.06       24.98
+{txt}                                Jutiapa {c |}{res}          1        0.06       25.05
+{txt}                       Jutiapa, Cabanas {c |}{res}          5        0.31       25.36
+{txt}         La Barca, Agua Blanca, Morazan {c |}{res}          1        0.06       25.42
+{txt}                La Canada, Chalatenango {c |}{res}          1        0.06       25.48
+{txt}         La Canoa, Jiquilisco, Usulutan {c |}{res}          1        0.06       25.54
+{txt}     La Cayetana, Tecoluca, San Vicente {c |}{res}          1        0.06       25.61
+{txt}                La Concordia, Sonsonate {c |}{res}          2        0.12       25.73
+{txt}              La Esperanza, San Vicente {c |}{res}          1        0.06       25.79
+{txt}   La Flecha, Puente Negro, San Vicente {c |}{res}          1        0.06       25.85
+{txt}               La Gloria, Tonacatepeque {c |}{res}          1        0.06       25.92
+{txt}                    La Guaruma, Cabanas {c |}{res}          1        0.06       25.98
+{txt}                           La Herradura {c |}{res}          1        0.06       26.04
+{txt}         La Joya de La Paz, San Vicente {c |}{res}          1        0.06       26.10
+{txt}                     La Laguna, Cabanas {c |}{res}          1        0.06       26.17
+{txt}                            La Libertad {c |}{res}          5        0.31       26.48
+{txt}               La Libertad, La Libertad {c |}{res}          2        0.12       26.60
+{txt}                 La Palma, Chalatenango {c |}{res}          1        0.06       26.66
+{txt}                                 La Paz {c |}{res}          5        0.31       26.97
+{txt}                    La Paz and Usulutan {c |}{res}          1        0.06       27.04
+{txt}                 La Reina, Chalatenango {c |}{res}          1        0.06       27.10
+{txt}                               La Union {c |}{res}          4        0.25       27.35
+{txt}                   La Union and Morazan {c |}{res}          1        0.06       27.41
+{txt}                     La Union, La Union {c |}{res}          5        0.31       27.72
+{txt}                     La Union. La Union {c |}{res}          1        0.06       27.78
+{txt}                                La Vega {c |}{res}          1        0.06       27.84
+{txt}                         La Via Troncal {c |}{res}          2        0.12       27.97
+{txt}     Laguna de Apastepeque, San Vicente {c |}{res}          1        0.06       28.03
+{txt}        Las Cajas, Suchitoto, Cuscatlan {c |}{res}          1        0.06       28.09
+{txt}                  Las Cruces, Santa Ana {c |}{res}          1        0.06       28.15
+{txt}                           Las Delicias {c |}{res}          1        0.06       28.22
+{txt}     Las Delicias, Suchitoto, Cuscatlan {c |}{res}          1        0.06       28.28
+{txt}    Las Delicias, Tenancingo, Cuscatlan {c |}{res}          1        0.06       28.34
+{txt}               Las Gallinas, San Miguel {c |}{res}          1        0.06       28.40
+{txt}                            Las Isletas {c |}{res}          1        0.06       28.46
+{txt}                Las Lomitas, San Miguel {c |}{res}          1        0.06       28.53
+{txt}            Las Magnolias, San Salvador {c |}{res}          1        0.06       28.59
+{txt} Las Margaritas, San Marcos Lempa, Usul {c |}{res}          1        0.06       28.65
+{txt}                  Las Mesas, San Miguel {c |}{res}          1        0.06       28.71
+{txt}                    Las Milpas, Ozatlan {c |}{res}          1        0.06       28.78
+{txt}      Las Milpas, San Agustin, Usulutan {c |}{res}          1        0.06       28.84
+{txt}                Las Minas, Chalatenango {c |}{res}          1        0.06       28.90
+{txt}                 Las Minas, San Vicente {c |}{res}          1        0.06       28.96
+{txt} Las Moras, Benedicion de Dios, Tecoluc {c |}{res}          1        0.06       29.02
+{txt}      Las Pampas, Tecoluca, San Vicente {c |}{res}          1        0.06       29.09
+{txt}                              Las Penas {c |}{res}          1        0.06       29.15
+{txt}                             Las Tablas {c |}{res}          1        0.06       29.21
+{txt}              Las Vueltas, Chalatenango {c |}{res}          9        0.56       29.77
+{txt}                     Lilisque, La Union {c |}{res}          2        0.12       29.89
+{txt}                     Lislique, La Union {c |}{res}          1        0.06       29.96
+{txt}          Llana de Santiago, San Miguel {c |}{res}          1        0.06       30.02
+{txt}                    Llanos, San Vicente {c |}{res}          1        0.06       30.08
+{txt}               Los Angeles, La Libertad {c |}{res}          1        0.06       30.14
+{txt}     Los Canales, San Agustin, Usulutan {c |}{res}          1        0.06       30.21
+{txt}               Los Conejos, San Vicente {c |}{res}          1        0.06       30.27
+{txt}                         Los Encuentros {c |}{res}          1        0.06       30.33
+{txt}       Los Filos, Arcatao, Chalatenango {c |}{res}          1        0.06       30.39
+{txt}                Los Hilos, Chalatenango {c |}{res}          1        0.06       30.45
+{txt}           Los Mangos, Perquin, Morazan {c |}{res}          1        0.06       30.52
+{txt}                          Los Naranjos, {c |}{res}          1        0.06       30.58
+{txt} Los Naranjos, Las Vueltas, Chalatenang {c |}{res}          1        0.06       30.64
+{txt}              Los Naranjos, San Vicente {c |}{res}          1        0.06       30.70
+{txt}                 Los Pozos, San Vicente {c |}{res}          1        0.06       30.76
+{txt}   Los Quebrachos, Jocoaitique, Morazan {c |}{res}          1        0.06       30.83
+{txt}                             Los Sitios {c |}{res}          2        0.12       30.95
+{txt}                        Lourdes, Colon, {c |}{res}          1        0.06       31.01
+{txt}                   Lourdes, La Libertad {c |}{res}          1        0.06       31.08
+{txt}             Marina Cumbre, La Libertad {c |}{res}          1        0.06       31.14
+{txt}                 Matazano, San Salvador {c |}{res}          2        0.12       31.26
+{txt}                Mejicanos, San Salvador {c |}{res}         15        0.93       32.19
+{txt}           Metalio, Acajutla, Sonsonate {c |}{res}          1        0.06       32.26
+{txt}                     Metalio, Sonsonate {c |}{res}          1        0.06       32.32
+{txt}                     Metapan, Santa Ana {c |}{res}          9        0.56       32.88
+{txt}                    Miraflores, Cabanas {c |}{res}          1        0.06       32.94
+{txt}                Miramonte, San Salvador {c |}{res}          1        0.06       33.00
+{txt}                Miravalle, San Salvador {c |}{res}          1        0.06       33.06
+{txt}                              Moncagua, {c |}{res}          1        0.06       33.13
+{txt}                  Monte San Juan, Cusca {c |}{res}          1        0.06       33.19
+{txt}              Monte San Juan, Cuscatlan {c |}{res}          4        0.25       33.44
+{txt}                  Montenegro, Santa Ana {c |}{res}          1        0.06       33.50
+{txt}                        Mora, Santa Ana {c |}{res}          1        0.06       33.56
+{txt}                                Morazan {c |}{res}          4        0.25       33.81
+{txt}        Morita, San Carlos, San Vicente {c |}{res}          1        0.06       33.87
+{txt}                 Mosquito, Chalatenango {c |}{res}          1        0.06       33.93
+{txt}                  Nahuilingo, Sonsonate {c |}{res}          1        0.06       34.00
+{txt}                  Nahuizalco, Sonsonate {c |}{res}          1        0.06       34.06
+{txt}                               National {c |}{res}          1        0.06       34.12
+{txt}                             Nationally {c |}{res}          3        0.19       34.31
+{txt}                   Nejapa, San Salvador {c |}{res}          7        0.44       34.74
+{txt}                Nicolas Lempa, Usulutan {c |}{res}          1        0.06       34.80
+{txt}                        Nombre de Jesus {c |}{res}          1        0.06       34.87
+{txt}                  Northern Chalatenango {c |}{res}          1        0.06       34.93
+{txt}                  Northern San Salvador {c |}{res}          3        0.19       35.11
+{txt}                       Nueva Concepcion {c |}{res}          1        0.06       35.18
+{txt}         Nueva Concepcion, Chalatenango {c |}{res}          1        0.06       35.24
+{txt}                          Nueva Esparta {c |}{res}          1        0.06       35.30
+{txt}           Nueva Trinidad, Chalatenango {c |}{res}          2        0.12       35.43
+{txt}     Nuevo Eden de San Juan, San Miguel {c |}{res}          3        0.19       35.61
+{txt}           Nuevo Tepetitan, San Vicente {c |}{res}          3        0.19       35.80
+{txt}             Ojos de Agua, Chalatenango {c |}{res}          3        0.19       35.99
+{txt}                      Olomega, La Union {c |}{res}          1        0.06       36.05
+{txt}                     Opico, La Libertad {c |}{res}          1        0.06       36.11
+{txt}                       Osicala, Morazan {c |}{res}          1        0.06       36.17
+{txt}                       Osquito, Morazan {c |}{res}          1        0.06       36.23
+{txt}                      Ozatlan, Usulutan {c |}{res}          1        0.06       36.30
+{txt}                  Paisnal, San Salvador {c |}{res}          6        0.37       36.67
+{txt}              Palo Grande, Chalatenango {c |}{res}          1        0.06       36.73
+{txt}                   Pan American Highway {c |}{res}          4        0.25       36.98
+{txt}                   Panama, San Salvador {c |}{res}          1        0.06       37.04
+{txt}              Panchimalco, San Salvador {c |}{res}          2        0.12       37.17
+{txt}              Paraiso de Osorio, La Paz {c |}{res}          1        0.06       37.23
+{txt}                        Pasaje Montalvo {c |}{res}          1        0.06       37.29
+{txt}               Penas Blancas, Santa Ana {c |}{res}          1        0.06       37.35
+{txt}                   Perical, San Vicente {c |}{res}          1        0.06       37.41
+{txt}                       Perquin, Morazan {c |}{res}          2        0.12       37.54
+{txt}         Pinitente Arriba, Zacatecoluca {c |}{res}          1        0.06       37.60
+{txt}                    Pinolito, Santa Ana {c |}{res}          1        0.06       37.66
+{txt} Pitichorro, San Juan Opico, La Liberta {c |}{res}          1        0.06       37.73
+{txt}             Plan del Pino, San Slvador {c |}{res}          1        0.06       37.79
+{txt}       Planes de Renderos, San Salvador {c |}{res}          1        0.06       37.85
+{txt}              Plantaneres, Zacatecoluca {c |}{res}          1        0.06       37.91
+{txt} Platanillos, Quezaltepeque, La Liberta {c |}{res}          1        0.06       37.97
+{txt}                     Playa El Tamarindo {c |}{res}          1        0.06       38.04
+{txt}          Playon, Tecoluca, San Vicente {c |}{res}          2        0.12       38.16
+{txt}       Por Venir, Tecoluca, San Vicente {c |}{res}          1        0.06       38.22
+{txt}                          Portrero Tula {c |}{res}          1        0.06       38.28
+{txt}                 Potonico, Chalatenango {c |}{res}          2        0.12       38.41
+{txt}          Presa 5 de Noviembre, Cabanas {c |}{res}          1        0.06       38.47
+{txt}           Presa 5 de Noviembre,Cabanas {c |}{res}          1        0.06       38.53
+{txt}                   Primavera, Santa Ana {c |}{res}          1        0.06       38.60
+{txt}             Puente Cuscatlan, Usulutan {c |}{res}          1        0.06       38.66
+{txt}              Puente Negro, San Vicente {c |}{res}          2        0.12       38.78
+{txt}                 Puente Torola, Morazan {c |}{res}          1        0.06       38.84
+{txt}                          Puente de Oro {c |}{res}          3        0.19       39.03
+{txt}            Puerto El Triunfo, Usulutan {c |}{res}          1        0.06       39.09
+{txt}              Puerto La Union, La Union {c |}{res}          1        0.06       39.15
+{txt}           Puerto Libertad, La Libertad {c |}{res}          2        0.12       39.28
+{txt}               Puerto Triunfo, Usulutan {c |}{res}          1        0.06       39.34
+{txt}             Quezaltepeque, La Libertad {c |}{res}         13        0.81       40.15
+{txt}                              Rio Sucio {c |}{res}          1        0.06       40.21
+{txt}        Rosario, Cojutepeque, Cuscatlan {c |}{res}          1        0.06       40.27
+{txt}                               Sacacoyo {c |}{res}          1        0.06       40.34
+{txt}                  Sacacoyo, La Libertad {c |}{res}          1        0.06       40.40
+{txt}        Sambobera, Zacatecoluca, La Paz {c |}{res}          1        0.06       40.46
+{txt}                  San Agustin, Usulutan {c |}{res}          2        0.12       40.58
+{txt}                            San Antonio {c |}{res}          1        0.06       40.65
+{txt}         San Antonio Abad, San Salvador {c |}{res}          5        0.31       40.96
+{txt}     San Antonio Achichilquito, San Vic {c |}{res}          1        0.06       41.02
+{txt}         San Antonio Jiboa, San Vicente {c |}{res}          1        0.06       41.08
+{txt}      San Antonio La Cruz, Chalatenango {c |}{res}          3        0.19       41.27
+{txt}       San Antonio Los Ranchos, Chalate {c |}{res}          1        0.06       41.33
+{txt}  San Antonio Los Ranchos, Chalatenango {c |}{res}          3        0.19       41.52
+{txt}    San Antonio Los Ranchos, San Miguel {c |}{res}          1        0.06       41.58
+{txt}    San Antonio Tras Cerro, San Vicente {c |}{res}          1        0.06       41.64
+{txt}       San Antonio de Victoria, Cabanas {c |}{res}          1        0.06       41.70
+{txt}       San Antonio del Monte, Sonsonate {c |}{res}          1        0.06       41.77
+{txt}      San Antonio la Cruz, Chalatenango {c |}{res}          1        0.06       41.83
+{txt}                      San Antonio, Abad {c |}{res}          1        0.06       41.89
+{txt}              San Bartolo, Chalatenango {c |}{res}          1        0.06       41.95
+{txt}              San Bartolo, San Salvador {c |}{res}          3        0.19       42.14
+{txt}                San Bartolome Perulapia {c |}{res}          2        0.12       42.26
+{txt}             San Buenaventura, Usulutan {c |}{res}          1        0.06       42.32
+{txt}                    San Carlos, Cabanas {c |}{res}          1        0.06       42.39
+{txt}    San Cayetano Ixtepeque, San Vicente {c |}{res}          1        0.06       42.45
+{txt}   San Cayetano, Ixtepeque, San Vicente {c |}{res}          2        0.12       42.57
+{txt}              San Cayetano, San Vicente {c |}{res}          2        0.12       42.70
+{txt}                          San Cristobal {c |}{res}          1        0.06       42.76
+{txt}        San Cristobal, Perullon, La Paz {c |}{res}          1        0.06       42.82
+{txt}   San Cristobal, Tecoluca, San Vicente {c |}{res}          1        0.06       42.88
+{txt}                              San Diego {c |}{res}          1        0.06       42.95
+{txt}                 San Diego, San Vicente {c |}{res}          1        0.06       43.01
+{txt}                            San Emigdio {c |}{res}          1        0.06       43.07
+{txt}      San Estaban Catarina, San Vicente {c |}{res}          2        0.12       43.19
+{txt}                   San Esteban Catarina {c |}{res}          1        0.06       43.26
+{txt}      San Esteban Catarina, San Vicente {c |}{res}          4        0.25       43.51
+{txt}   San Felipe, Apastepeque, San Vicente {c |}{res}          1        0.06       43.57
+{txt}           San Felipe, Berlin, Usulutan {c |}{res}          1        0.06       43.63
+{txt}                  San Fernando, Morazan {c |}{res}          2        0.12       43.75
+{txt} San FranSan Pedro Perulapan, Cuscatlan {c |}{res}          1        0.06       43.82
+{txt}                          San Francisco {c |}{res}          1        0.06       43.88
+{txt}    San Francisco Morazan, Chalatenango {c |}{res}          1        0.06       43.94
+{txt}            San Francisco, Chalatenango {c |}{res}          1        0.06       44.00
+{txt}                 San Francisco, Morazan {c |}{res}          1        0.06       44.06
+{txt}    San Francisco, Zacatecoluca, La Paz {c |}{res}          1        0.06       44.13
+{txt}              San Ignacio, Chalatenango {c |}{res}          1        0.06       44.19
+{txt}                             San Isidro {c |}{res}          2        0.12       44.31
+{txt}      San Isidro Labrador, Chalatenango {c |}{res}          1        0.06       44.38
+{txt}                    San Isidro, Cabanas {c |}{res}          4        0.25       44.62
+{txt}              San Jacinto, San Salvador {c |}{res}          2        0.12       44.75
+{txt}               San Jacinto, San Vicente {c |}{res}          1        0.06       44.81
+{txt}                 San Jacinto, Santa Ana {c |}{res}          1        0.06       44.87
+{txt}                  San Jorge, San Miguel {c |}{res}          1        0.06       44.93
+{txt}       San Jose Cancasque, Chalatenango {c |}{res}          1        0.06       45.00
+{txt}           San Jose Guayabal, Cuscatlan {c |}{res}          1        0.06       45.06
+{txt}      San Jose Las Flores, Chalatenango {c |}{res}          2        0.12       45.18
+{txt}          San Jose Verapaz, San Vicente {c |}{res}          1        0.06       45.25
+{txt}          San Jose de Ilobasco, Cabanas {c |}{res}          1        0.06       45.31
+{txt}               San Jose de Mont, La Paz {c |}{res}          1        0.06       45.37
+{txt}      San Jose de la Montana, Cuscatlan {c |}{res}          1        0.06       45.43
+{txt}      San Jose las Flores, Chalatenango {c |}{res}          2        0.12       45.56
+{txt}                  San Jose, La Libertad {c |}{res}          1        0.06       45.62
+{txt}     San Jose, San Martin, San Salvador {c |}{res}          1        0.06       45.68
+{txt}              San Juan Nonualco, La Paz {c |}{res}          7        0.44       46.12
+{txt}            San Juan Opico, La Libertad {c |}{res}          3        0.19       46.30
+{txt}   San Juan, Ciudad Barrios, San Miguel {c |}{res}          1        0.06       46.36
+{txt}       San Juan, Cojutepeque, Cuscatlan {c |}{res}          1        0.06       46.43
+{txt}         San Juan, Suchitoto, Cuscatlan {c |}{res}          1        0.06       46.49
+{txt}        San Julian, Acajutla, Sonsonate {c |}{res}          1        0.06       46.55
+{txt}                  San Julian, Sonsonate {c |}{res}          3        0.19       46.74
+{txt} San Laureano, Ciudad Delgado, San Salv {c |}{res}          1        0.06       46.80
+{txt}        San Lorenzo Hydroelectric Plant {c |}{res}          1        0.06       46.86
+{txt}               San Lorenzo, San Vicente {c |}{res}          9        0.56       47.42
+{txt}      San Luis del Carmen, Chalatenango {c |}{res}          1        0.06       47.48
+{txt} San Marcos Lempa, Jiquilisco, Usulutan {c |}{res}          2        0.12       47.61
+{txt}                 San Marcos, San Marcos {c |}{res}          1        0.06       47.67
+{txt}               San Marcos, San Salvador {c |}{res}          6        0.37       48.04
+{txt}                San Martin, El Salvador {c |}{res}          1        0.06       48.10
+{txt}               San Martin, San Salvador {c |}{res}         14        0.87       48.97
+{txt}                San Matias, La Libertad {c |}{res}          1        0.06       49.04
+{txt}                             San Miguel {c |}{res}          1        0.06       49.10
+{txt}   San Miguel de Mercedes, Chalatenango {c |}{res}          2        0.12       49.22
+{txt}               San Miguel, Las Mercedes {c |}{res}          1        0.06       49.29
+{txt}                 San Miguel, San Miguel {c |}{res}         43        2.67       51.96
+{txt}                   San Miguel- La Union {c |}{res}          1        0.06       52.02
+{txt}   San Miguelito, Coatepeque, Santa Ana {c |}{res}          1        0.06       52.08
+{txt}                     San Nicolas Lempa, {c |}{res}          1        0.06       52.14
+{txt}             San Nicolas Lempa, Cabanas {c |}{res}          2        0.12       52.27
+{txt}            San Nicolas Lempa, Usulutan {c |}{res}          1        0.06       52.33
+{txt}                              San Pedro {c |}{res}          1        0.06       52.39
+{txt}          San Pedro Mashuat, ahuachapan {c |}{res}          1        0.06       52.45
+{txt}             San Pedro Nonualco, La Paz {c |}{res}          1        0.06       52.52
+{txt}         San Pedro Perulapan, Cuscatlan {c |}{res}          6        0.37       52.89
+{txt}         San Pedro Perulupan, Cuscatlan {c |}{res}          1        0.06       52.95
+{txt}   San Pedro, San Sebatian, San Vicente {c |}{res}          1        0.06       53.01
+{txt}           San Rafael Cedros, Cuscatlan {c |}{res}          1        0.06       53.08
+{txt}                   San Rafael Obrajuela {c |}{res}          1        0.06       53.14
+{txt}           San Rafael Obrajuela, La Paz {c |}{res}          1        0.06       53.20
+{txt}                   San Rafael Obrajuelo {c |}{res}          1        0.06       53.26
+{txt}     San Rafael Obrajuelo, Chalatenango {c |}{res}          1        0.06       53.33
+{txt}               San Rafael, Chalatenango {c |}{res}          3        0.19       53.51
+{txt}   San Ramon, Ayutuxtepeque, San Salvad {c |}{res}          1        0.06       53.57
+{txt}                   San Ramon, Cuscatlan {c |}{res}          1        0.06       53.64
+{txt}                San Ramon, San Salvador {c |}{res}          2        0.12       53.76
+{txt}                           San Salvador {c |}{res}          4        0.25       54.01
+{txt}            San Salvador,  San Salvador {c |}{res}          1        0.06       54.07
+{txt}                 San Salvador, San Salv {c |}{res}          4        0.25       54.32
+{txt}             San Salvador, San Salvador {c |}{res}        312       19.39       73.71
+{txt}San Salvador, San Salvador and Santa .. {c |}{res}          1        0.06       73.77
+{txt}                     San Salvador-Chale {c |}{res}          1        0.06       73.83
+{txt}                          San Sebastian {c |}{res}          1        0.06       73.90
+{txt}             San Sebastian, San Vicente {c |}{res}          3        0.19       74.08
+{txt}              San Sebatian, San Vicente {c |}{res}          2        0.12       74.21
+{txt}                     San Simon, Morazan {c |}{res}          1        0.06       74.27
+{txt}                San Tomas, San Salvador {c |}{res}          1        0.06       74.33
+{txt}                            San Vicente {c |}{res}          4        0.25       74.58
+{txt}                    San Vicente highway {c |}{res}          2        0.12       74.70
+{txt}               San Vicente, San Vicente {c |}{res}         23        1.43       76.13
+{txt}                   Santa Ana, Santa Ana {c |}{res}         63        3.92       80.05
+{txt}                            Santa Clara {c |}{res}          1        0.06       80.11
+{txt}              Santa Clara, San Salvador {c |}{res}          1        0.06       80.17
+{txt}               Santa Clara, San Vicente {c |}{res}          2        0.12       80.30
+{txt}                Santa Clarita, Usulutan {c |}{res}          1        0.06       80.36
+{txt}                     Santa Cruz Porillo {c |}{res}          1        0.06       80.42
+{txt}            Santa Cruz Porrillo, La Paz {c |}{res}          2        0.12       80.55
+{txt}               Santa Elena, La Libertad {c |}{res}          1        0.06       80.61
+{txt}               Santa Elena, San Vicente {c |}{res}          1        0.06       80.67
+{txt}                  Santa Elena, Usulutan {c |}{res}          1        0.06       80.73
+{txt}                  Santa Emilia, Morazan {c |}{res}          1        0.06       80.80
+{txt}              Santa Lucia, San Salvador {c |}{res}          1        0.06       80.86
+{txt}                  Santa Maria, Usulutan {c |}{res}          1        0.06       80.92
+{txt}               Santa Rita, Chalatenango {c |}{res}          2        0.12       81.04
+{txt}                Santa Rita,Chalatenango {c |}{res}          1        0.06       81.11
+{txt}                             Santa Rosa {c |}{res}          1        0.06       81.17
+{txt}              Santa Rosa Lima, Usulutan {c |}{res}          1        0.06       81.23
+{txt}         Santa Rosa de Lima, San Miguel {c |}{res}          1        0.06       81.29
+{txt}               Santa Tecla, La Libertad {c |}{res}          9        0.56       81.85
+{txt}               Santa Tecla, La Libertas {c |}{res}          1        0.06       81.91
+{txt}                   Santa ana, santa Ana {c |}{res}          1        0.06       81.98
+{txt}              Santiago Nanualco, La Paz {c |}{res}          1        0.06       82.04
+{txt}              Santiago Nonualco, La Paz {c |}{res}          5        0.31       82.35
+{txt}         Santiago Nonualco, San Vicente {c |}{res}          1        0.06       82.41
+{txt}            Santiago de Maria, Usulutan {c |}{res}          1        0.06       82.47
+{txt}             Santo Domingo, San Vicente {c |}{res}          5        0.31       82.78
+{txt}                            Santo Tomas {c |}{res}          2        0.12       82.91
+{txt}              Santo Tomas, San Salvador {c |}{res}          3        0.19       83.10
+{txt}                 Satelite, San Salvador {c |}{res}          1        0.06       83.16
+{txt}             Sensuluca, Gotera, Morazan {c |}{res}          1        0.06       83.22
+{txt}                  Sensutepeque, Cabanas {c |}{res}          3        0.19       83.41
+{txt}                                 Sesori {c |}{res}          1        0.06       83.47
+{txt}                     Sesori, San Miguel {c |}{res}          1        0.06       83.53
+{txt}                  Sesuntepeque, Cabanas {c |}{res}          2        0.12       83.65
+{txt}         Sitio Viejo, Ilobasco, Cabanas {c |}{res}          1        0.06       83.72
+{txt}                      Sociedad, Morazan {c |}{res}          2        0.12       83.84
+{txt}                              Sonsonate {c |}{res}          2        0.12       83.97
+{txt}                   Sonsonate, Sonsonate {c |}{res}         21        1.31       85.27
+{txt}                   Sonzacate, Sonsonate {c |}{res}          3        0.19       85.46
+{txt}                Soyapango, San Salvador {c |}{res}         24        1.49       86.95
+{txt}                Soyapongo, San Salvador {c |}{res}          4        0.25       87.20
+{txt}                    Sozacate, Sonsonate {c |}{res}          1        0.06       87.26
+{txt}          Sto Domingo de Guzman, Sonson {c |}{res}          1        0.06       87.32
+{txt}                              Suchitlan {c |}{res}          1        0.06       87.38
+{txt}                   Suchitoto, Cuscatlan {c |}{res}         15        0.93       88.32
+{txt}                 Tacachico, La Libertad {c |}{res}          3        0.19       88.50
+{txt}                             Tanulasco, {c |}{res}          1        0.06       88.56
+{txt}                  Tecoluca, San Vicente {c |}{res}         13        0.81       89.37
+{txt} TecolucoSan Pedro Perulapan, Cuscatlan {c |}{res}          1        0.06       89.43
+{txt}                  Tecomatal, San Miguel {c |}{res}          1        0.06       89.50
+{txt}                               Tecomate {c |}{res}          1        0.06       89.56
+{txt}                              Tehuacan, {c |}{res}          1        0.06       89.62
+{txt}                            Tejutepeque {c |}{res}          1        0.06       89.68
+{txt}                   Tejutepeque, Cabanas {c |}{res}          7        0.44       90.12
+{txt}         Tejutepeque, Cinquera, Cabanas {c |}{res}          1        0.06       90.18
+{txt}                  Tejutla, Chalatenango {c |}{res}          2        0.12       90.30
+{txt}                       Tejutla. Cabanas {c |}{res}          1        0.06       90.37
+{txt}                  Tenancingo, Cuscatlan {c |}{res}          5        0.31       90.68
+{txt}          Tenango, Suchitoto, Cuscatlan {c |}{res}          1        0.06       90.74
+{txt}        Teosinte, Arcatao, Chalatenango {c |}{res}          1        0.06       90.80
+{txt}                  Tepecoyo, La Libertad {c |}{res}          1        0.06       90.86
+{txt}                 Tepetitan, San Vicente {c |}{res}          5        0.31       91.17
+{txt}                                Tetigua {c |}{res}          1        0.06       91.24
+{txt}                  Texistepeque, Cabanas {c |}{res}          1        0.06       91.30
+{txt}                Texistepeque, Santa Ana {c |}{res}          2        0.12       91.42
+{txt}     Tierra Balnca, Jiqulisco, Usulutan {c |}{res}          1        0.06       91.49
+{txt}    Tierra Blanca, Jiquilisco, Usulutan {c |}{res}          2        0.12       91.61
+{txt}                Tierra Blanca, Usulutan {c |}{res}          3        0.19       91.80
+{txt}                                 Tizapa {c |}{res}          1        0.06       91.86
+{txt}                      Toma de Aguilares {c |}{res}          1        0.06       91.92
+{txt}                          Tonacatepeque {c |}{res}          3        0.19       92.11
+{txt}             Tonacatepeque, La Libertad {c |}{res}          1        0.06       92.17
+{txt}            Tonacatepeque, San Salvador {c |}{res}          1        0.06       92.23
+{txt}                        Torola, Morazan {c |}{res}          1        0.06       92.29
+{txt}              Tres Ceibas, San Salvador {c |}{res}          1        0.06       92.36
+{txt}                      Troncal del Norte {c |}{res}          1        0.06       92.42
+{txt}                      Troncal del norte {c |}{res}          1        0.06       92.48
+{txt}          Troncal highway, San Salvador {c |}{res}          1        0.06       92.54
+{txt}                       Tulima. La Union {c |}{res}          1        0.06       92.60
+{txt}                               Usulutan {c |}{res}          3        0.19       92.79
+{txt}                      Usulutan  highway {c |}{res}          1        0.06       92.85
+{txt}                     Usulutan, Usulutan {c |}{res}         17        1.06       93.91
+{txt}                   Verapaz, San Vicente {c |}{res}          3        0.19       94.10
+{txt}                  Verapaz, San Vicentee {c |}{res}          3        0.19       94.28
+{txt}                      Victoria, Cabanas {c |}{res}          1        0.06       94.34
+{txt}                 Villa Dolores, Cabanas {c |}{res}          3        0.19       94.53
+{txt}              Villa El Rosario, Morazan {c |}{res}          1        0.06       94.59
+{txt}                      Villa El Transito {c |}{res}          1        0.06       94.66
+{txt}             Villa Verapaz, San Vicente {c |}{res}          1        0.06       94.72
+{txt}                Villa Victoria, Cabanas {c |}{res}          4        0.25       94.97
+{txt}      Volcan Chaparrastique, San Miguel {c |}{res}          2        0.12       95.09
+{txt}              Volcan Opico, San Vicente {c |}{res}          1        0.06       95.15
+{txt}      Volcan San Salvador, San Salvador {c |}{res}          2        0.12       95.28
+{txt}                    Yoloiquin, La Union {c |}{res}          1        0.06       95.34
+{txt}                  Zacamil, San Salvador {c |}{res}          3        0.19       95.53
+{txt}                   Zacatecoluca, La Paz {c |}{res}         31        1.93       97.45
+{txt}        between San Salvador -Santa Ana {c |}{res}          1        0.06       97.51
+{txt}         between San Salvador Santa Ana {c |}{res}          1        0.06       97.58
+{txt}                      hacienda Chanmico {c |}{res}          1        0.06       97.64
+{txt}                               national {c |}{res}         28        1.74       99.38
+{txt}             national - rio Lempa plant {c |}{res}          1        0.06       99.44
+{txt}                             nationally {c |}{res}          6        0.37       99.81
+{txt}                nationally/San Salvador {c |}{res}          1        0.06       99.88
+{txt}                   northern El Salvador {c |}{res}          1        0.06       99.94
+{txt}                        rural Santa Ana {c |}{res}          1        0.06      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      1,609      100.00
+
+     {txt}TARGET {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          C {c |}{res}        169       13.36       13.36
+{txt}       C, G {c |}{res}          6        0.47       13.83
+{txt}       C, M {c |}{res}          6        0.47       14.31
+{txt}       C, S {c |}{res}          5        0.40       14.70
+{txt}          G {c |}{res}        397       31.38       46.09
+{txt}       G, C {c |}{res}          4        0.32       46.40
+{txt}    G, M, C {c |}{res}          1        0.08       46.48
+{txt}      G, Pr {c |}{res}          1        0.08       46.56
+{txt}       G, S {c |}{res}         14        1.11       47.67
+{txt}          L {c |}{res}        107        8.46       56.13
+{txt}       L, C {c |}{res}          1        0.08       56.21
+{txt}       L, G {c |}{res}          1        0.08       56.28
+{txt}       L, M {c |}{res}          1        0.08       56.36
+{txt}       L, S {c |}{res}         15        1.19       57.55
+{txt}          M {c |}{res}         41        3.24       60.79
+{txt}       M, C {c |}{res}          3        0.24       61.03
+{txt}       M, G {c |}{res}          4        0.32       61.34
+{txt}          O {c |}{res}         12        0.95       62.29
+{txt}         Pa {c |}{res}         13        1.03       63.32
+{txt}     Pa,  G {c |}{res}          2        0.16       63.48
+{txt}         Pr {c |}{res}          8        0.63       64.11
+{txt}      Pr, G {c |}{res}          8        0.63       64.74
+{txt}          S {c |}{res}        432       34.15       98.89
+{txt}       S, C {c |}{res}          2        0.16       99.05
+{txt}       S, G {c |}{res}          8        0.63       99.68
+{txt}       S, L {c |}{res}          3        0.24       99.92
+{txt}          g {c |}{res}          1        0.08      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,265      100.00
+{txt}
+{com}. . `d3e746c11e9f0dccd391092f019120a6'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in geograph target  {c -(}
+{txt}  2{com}. tab `var'
+{txt}  3{com}. {c )-}
+
+    {txt}(first) {c |}
+   geograph {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+    #¡NULO! {c |}{res}         12        0.74        0.74
+{txt}       1.00 {c |}{res}        603       37.20       37.94
+{txt}       2.00 {c |}{res}        245       15.11       53.05
+{txt}       3.00 {c |}{res}        761       46.95      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+
+     {txt}TARGET {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          C {c |}{res}        169       13.36       13.36
+{txt}       C, G {c |}{res}          6        0.47       13.83
+{txt}       C, M {c |}{res}          6        0.47       14.31
+{txt}       C, S {c |}{res}          5        0.40       14.70
+{txt}          G {c |}{res}        397       31.38       46.09
+{txt}       G, C {c |}{res}          4        0.32       46.40
+{txt}    G, M, C {c |}{res}          1        0.08       46.48
+{txt}      G, Pr {c |}{res}          1        0.08       46.56
+{txt}       G, S {c |}{res}         14        1.11       47.67
+{txt}          L {c |}{res}        107        8.46       56.13
+{txt}       L, C {c |}{res}          1        0.08       56.21
+{txt}       L, G {c |}{res}          1        0.08       56.28
+{txt}       L, M {c |}{res}          1        0.08       56.36
+{txt}       L, S {c |}{res}         15        1.19       57.55
+{txt}          M {c |}{res}         41        3.24       60.79
+{txt}       M, C {c |}{res}          3        0.24       61.03
+{txt}       M, G {c |}{res}          4        0.32       61.34
+{txt}          O {c |}{res}         12        0.95       62.29
+{txt}         Pa {c |}{res}         13        1.03       63.32
+{txt}     Pa,  G {c |}{res}          2        0.16       63.48
+{txt}         Pr {c |}{res}          8        0.63       64.11
+{txt}      Pr, G {c |}{res}          8        0.63       64.74
+{txt}          S {c |}{res}        432       34.15       98.89
+{txt}       S, C {c |}{res}          2        0.16       99.05
+{txt}       S, G {c |}{res}          8        0.63       99.68
+{txt}       S, L {c |}{res}          3        0.24       99.92
+{txt}          g {c |}{res}          1        0.08      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,265      100.00
+{txt}
+{com}. . `092704ff6f28b6d01dc958c754fd271f'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. foreach var in geograph target violence {c -(}
+{txt}  2{com}. tab `var'
+{txt}  3{com}. {c )-}
+
+    {txt}(first) {c |}
+   geograph {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+    #¡NULO! {c |}{res}         12        0.74        0.74
+{txt}       1.00 {c |}{res}        603       37.20       37.94
+{txt}       2.00 {c |}{res}        245       15.11       53.05
+{txt}       3.00 {c |}{res}        761       46.95      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+
+     {txt}TARGET {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          C {c |}{res}        169       13.36       13.36
+{txt}       C, G {c |}{res}          6        0.47       13.83
+{txt}       C, M {c |}{res}          6        0.47       14.31
+{txt}       C, S {c |}{res}          5        0.40       14.70
+{txt}          G {c |}{res}        397       31.38       46.09
+{txt}       G, C {c |}{res}          4        0.32       46.40
+{txt}    G, M, C {c |}{res}          1        0.08       46.48
+{txt}      G, Pr {c |}{res}          1        0.08       46.56
+{txt}       G, S {c |}{res}         14        1.11       47.67
+{txt}          L {c |}{res}        107        8.46       56.13
+{txt}       L, C {c |}{res}          1        0.08       56.21
+{txt}       L, G {c |}{res}          1        0.08       56.28
+{txt}       L, M {c |}{res}          1        0.08       56.36
+{txt}       L, S {c |}{res}         15        1.19       57.55
+{txt}          M {c |}{res}         41        3.24       60.79
+{txt}       M, C {c |}{res}          3        0.24       61.03
+{txt}       M, G {c |}{res}          4        0.32       61.34
+{txt}          O {c |}{res}         12        0.95       62.29
+{txt}         Pa {c |}{res}         13        1.03       63.32
+{txt}     Pa,  G {c |}{res}          2        0.16       63.48
+{txt}         Pr {c |}{res}          8        0.63       64.11
+{txt}      Pr, G {c |}{res}          8        0.63       64.74
+{txt}          S {c |}{res}        432       34.15       98.89
+{txt}       S, C {c |}{res}          2        0.16       99.05
+{txt}       S, G {c |}{res}          8        0.63       99.68
+{txt}       S, L {c |}{res}          3        0.24       99.92
+{txt}          g {c |}{res}          1        0.08      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,265      100.00
+
+   {txt}VIOLENCE {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        519       32.02       32.02
+{txt}          1 {c |}{res}      1,102       67.98      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. . `bac1830810f2ff3d3c39700f57d7da0f'
+. lab values geograph 1 "Big cities" 2 "Medium size cities" 3 "Small locations"
+{err}1 invalid name
+{txt}{search r(198), local:r(198);}
+
+{com}. `5185e3d159f3f82c12a75ee71a3b78f3'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. lab define geograph 1 "Big cities" 2 "Medium size cities" 3 "Small locations"
+{txt}
+{com}. lab values geograph geograph
+{err}may not label strings
+{txt}{search r(181), local:r(181);}
+{search r(181), local:r(181);}
+
+{com}. `abc90b303b37ee2461ffa06079f2f6c5'
+. tab strikes geograph
+{err}variable {bf}strikes{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. `35741a27b055367af8a34b9bc8dd83cc'
+. tab strike geograph
+
+     {txt}(sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+
+{com}. `74cbc6ecab2c6d0a74fef36b73f74489'
+. tab geograph strike
+
+   {txt}(first) {c |}                                                                  (sum) strike
+  geograph {c |}         0          1          2          3          4          5          6          9         13         20         21         24         42 {c |}     Total
+{hline 11}{c +}{hline 143}{c +}{hline 10}
+   #¡NULO! {c |}{res}        12          0          0          0          0          0          0          0          0          0          0          0          0 {txt}{c |}{res}        12 
+{txt}      1.00 {c |}{res}       490         86         15          2          4          1          0          1          0          1          1          1          1 {txt}{c |}{res}       603 
+{txt}      2.00 {c |}{res}       231         11          2          0          1          0          0          0          0          0          0          0          0 {txt}{c |}{res}       245 
+{txt}      3.00 {c |}{res}       748         11          0          0          0          0          1          0          1          0          0          0          0 {txt}{c |}{res}       761 
+{txt}{hline 11}{c +}{hline 143}{c +}{hline 10}
+     Total {c |}{res}     1,481        108         17          2          5          1          1          1          1          1          1          1          1 {txt}{c |}{res}     1,621 
+
+{com}. `0eb5a746c149d53c11829b39f18ab75d'
+. tab  strike geograph
+
+     {txt}(sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+
+{com}. `17ae4f7df96f36bfd3b67a81c0011257'
+. cap noi graph bar strike geograph
+{err}type mismatch
+
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `0e82ab5dac0956023b891c278ae3377a'
+. tab strike geograph
+
+     {txt}(sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+
+{com}. `74cbc6ecab2c6d0a74fef36b73f74489'
+. graphbar strike, over  (geograph)
+{err}command {bf}graphbar{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. `e064e33a6425abd5023ed60a56137243'
+. cap noi graph bar strike, over  (geograph)
+{res}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph9.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph9.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `0407c9373ff3780054cde091886ad2aa'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. gen geograph2="Big City" if geograph=="1"
+{txt}(1,621 missing values generated)
+
+{com}. gen geograph2="Medium size city" if geograph=="2"
+{err}variable {bf}geograph2{sf} already defined
+{txt}{search r(110), local:r(110);}
+{search r(110), local:r(110);}
+
+{com}. `52b72118dc7f729f6c09ade1a2518814'
+. cap noi graph bar strike, over  (geograph2)
+{err}no observations
+
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `e468d8696ab925db4bfaa015b2758432'
+. cap noi graph bar strike, over  (geograph)
+{res}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph10.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph10.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `0407c9373ff3780054cde091886ad2aa'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. gen geograph3=.
+{txt}(1,621 missing values generated)
+
+{com}. replace geograph3="Big City" if geograph=="1"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+{search r(109), local:r(109);}
+
+{com}. `078109c9e4bc8067f38d1bc68dbb6ae5'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. gen geograph3=.
+{err}variable {bf}geograph3{sf} already defined
+{txt}{search r(110), local:r(110);}
+{search r(110), local:r(110);}
+
+{com}. `078109c9e4bc8067f38d1bc68dbb6ae5'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. gen geograph4=geograph
+{txt}
+{com}. replace geograph4="Big City" if geograph=="1"
+{txt}(0 real changes made)
+
+{com}. replace geograph4="Medium size city" if geograph=="2"
+{txt}(0 real changes made)
+
+{com}. replace geograph4="Small location" if geograph =="3"
+{txt}(0 real changes made)
+
+{com}. replace geograph4="unknown" if geograph ==.
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+{search r(109), local:r(109);}
+
+{com}. `e8339cc54d0af6862f389b76794607e7'
+. tab geograph, m nol
+
+    {txt}(first) {c |}
+   geograph {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+    #¡NULO! {c |}{res}         12        0.74        0.74
+{txt}       1.00 {c |}{res}        603       37.20       37.94
+{txt}       2.00 {c |}{res}        245       15.11       53.05
+{txt}       3.00 {c |}{res}        761       46.95      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+
+{com}. `01e30562b774940b204d68d82a3001ad'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. tab geograph, m nol
+
+    {txt}(first) {c |}
+   geograph {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+    #¡NULO! {c |}{res}         12        0.74        0.74
+{txt}       1.00 {c |}{res}        603       37.20       37.94
+{txt}       2.00 {c |}{res}        245       15.11       53.05
+{txt}       3.00 {c |}{res}        761       46.95      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      1,621      100.00
+{txt}
+{com}. replace geograph=. if geograph== #¡NULO!
+{err}invalid syntax
+{txt}{search r(198), local:r(198);}
+{search r(198), local:r(198);}
+
+{com}. `83282a0db1c9e8ce360e8b8660ed630d'
+. tab strike geograph4="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `0dac7ec2e1c8fd888dee207b9f7a9b1d'
+. tab strike geograph4 if geograph4="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `1a921f7e9996324b139eeb341f3d0195'
+. tab strike geograph4 if geograph4="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `1a921f7e9996324b139eeb341f3d0195'
+. tab strike geograph4 if geograph4=="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `883fcd757887f54c3cec111c696a0cd2'
+. tab strike geograph if geograph="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `0dadbfd072f90e4efa68d44d40adbca0'
+. tab strike geograph if geograph4=="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `269341e00206eec43339eb3c22654aaa'
+. tab strike geograph if geograph=="1"&"2"&"3"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `396857068d4f64896b586b7c45302d7f'
+. tab strike geograph if geograph="1"
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. `62c465a3f4c2d412030856b07b817aba'
+. tab strike geograph
+
+     {txt}(sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+
+{com}. `74cbc6ecab2c6d0a74fef36b73f74489'
+. cap noi graph bar strike, over  (geograph)
+{res}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph11.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph11.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `0407c9373ff3780054cde091886ad2aa'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. xi i.geograph, noomit
+{txt}
+{com}. cap noi graph bar strike, over (_Igeograph_*) label percentages legend(off) blabel(bar, format(%9.1f)) showxvars xvaroptions(relabel(1 "big city" 2 "Medium Size city" 3 "Small city"))
+{err}too many variables specified
+{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `ba0c5531fcdaee642d1f68e7d830ea34'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. xi i.geograph, noomit
+{txt}
+{com}. cap noi graph bar strike, over (_Igeograph_*) label percentages legend(off) blabel(bar, format(%9.1f)) showyvars yvaroptions(relabel(1 "big city" 2 "Medium Size city" 3 "Small city"))
+{err}too many variables specified
+{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `28a41ed4bd258bdd74bf8a19c789ba76'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. xi i.geograph, noomit
+{txt}
+{com}. cap noi graph bar _Igeograph_*, over (strike) label percentages legend(off) blabel(bar, format(%9.1f)) showyvars yvaroptions(relabel(1 "big city" 2 "Medium Size city" 3 "Small city"))
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph12.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph12.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `0872073d523c59f3d294c6770ef69f24'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. xi i.geograph, noomit
+{txt}
+{com}. cap noi graph bar _Igeograph_*, over (strike) showyvars yvaroptions(relabel(1 "big city" 2 "Medium Size city" 3 "Small city"))
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph13.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph13.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `9583cdb0aa5fbc7e72b835985e3da6ec'
+. bysort violence: tab strike geograph
+
+{txt}{hline}
+-> violence = 0
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         4        262         54         59 {txt}{c |}{res}       379 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         4        375         68         72 {txt}{c |}{res}       519 
+
+{txt}{hline}
+-> violence = 1
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+
+
+{com}. `e68a8f0bfb96f0d4a58a5dce8d923b9d'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph
+
+{txt}{hline}
+-> violence = 0
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         4        262         54         59 {txt}{c |}{res}       379 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         4        375         68         72 {txt}{c |}{res}       519 
+
+{txt}{hline}
+-> violence = 1
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+
+{txt}
+{com}. cap noi graph bar strike, over (geograph)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph14.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph14.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `83fdb042f61cef5665f01e1a61384bd2'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph
+
+{txt}{hline}
+-> violence = 0
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         4        262         54         59 {txt}{c |}{res}       379 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         4        375         68         72 {txt}{c |}{res}       519 
+
+{txt}{hline}
+-> violence = 1
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+
+{txt}
+{com}. bysort violence: graph bar strike, over (geograph)
+{err}graph may not be combined with by
+{txt}{search r(190), local:r(190);}
+{search r(190), local:r(190);}
+
+{com}. `31812fcbfc89b680ac02abc3e713e3f9'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph
+
+{txt}{hline}
+-> violence = 0
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         4        262         54         59 {txt}{c |}{res}       379 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         4        375         68         72 {txt}{c |}{res}       519 
+
+{txt}{hline}
+-> violence = 1
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+
+{txt}
+{com}. cap noi graph bar strike, over (geograph) by (violence)
+{res}{err}option {bf:by()} not allowed
+{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `fc048274883756523b0a9f5fe1533ab4'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph
+
+{txt}{hline}
+-> violence = 0
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         4        262         54         59 {txt}{c |}{res}       379 
+{txt}         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         4        375         68         72 {txt}{c |}{res}       519 
+
+{txt}{hline}
+-> violence = 1
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}         8        228        177        689 {txt}{c |}{res}     1,102 
+
+{txt}
+{com}. cap noi graph bar strike, over (geograph) by(violence)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph15.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph15.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `4dfaedc8d925c3e1fa334d91715d1453'
+. tab strike geograph, chi row
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+           {txt}{c |}{res}      0.81      33.09      15.60      50.51 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}      0.00      79.63      10.19      10.19 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}      0.00      88.24      11.76       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}      0.00      80.00      20.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+           {txt}{c |}{res}      0.74      37.20      15.11      46.95 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}36{txt}) = {res}137.7827  {txt} Pr = {res}0.000
+
+{com}. `0b9be838cded7a74e6f989cf82154b3d'
+. tab strike geograph, column chi
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+           {txt}{c |}{res}    100.00      81.26      94.29      98.29 {txt}{c |}{res}     91.36 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}      0.00      14.26       4.49       1.45 {txt}{c |}{res}      6.66 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}      0.00       2.49       0.82       0.00 {txt}{c |}{res}      1.05 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      0.00       0.33       0.00       0.00 {txt}{c |}{res}      0.12 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}      0.00       0.66       0.41       0.00 {txt}{c |}{res}      0.31 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.17       0.00       0.00 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00       0.13 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.17       0.00       0.00 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00       0.13 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.17       0.00       0.00 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.17       0.00       0.00 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.17       0.00       0.00 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.17       0.00       0.00 {txt}{c |}{res}      0.06 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}36{txt}) = {res}137.7827  {txt} Pr = {res}0.000
+
+{com}. `681f19f0f30a39c60f0260ff59380ad2'
+. tab strike geograph, row chi
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}              (first) geograph
+    strike {c |}   #¡NULO!       1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}        12        490        231        748 {txt}{c |}{res}     1,481 
+           {txt}{c |}{res}      0.81      33.09      15.60      50.51 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         1 {c |}{res}         0         86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}      0.00      79.63      10.19      10.19 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         2 {c |}{res}         0         15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}      0.00      88.24      11.76       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         3 {c |}{res}         0          2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         4 {c |}{res}         0          4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}      0.00      80.00      20.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         5 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         6 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         9 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        13 {c |}{res}         0          0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        20 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        21 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        24 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+        42 {c |}{res}         0          1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}        12        603        245        761 {txt}{c |}{res}     1,621 
+           {txt}{c |}{res}      0.74      37.20      15.11      46.95 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}36{txt}) = {res}137.7827  {txt} Pr = {res}0.000
+
+{com}. `252fb899fb5117c37d25fda9a222de9f'
+. tab strike geograph if strikes!=0, row chi
+{err}strikes not found
+{txt}{search r(111), local:r(111);}
+
+{com}. `2328e26e37831d0e6a58d19bdb75165a'
+. tab strike geograph if strike!=0, row chi
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}     79.63      10.19      10.19 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}        15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     88.24      11.76       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     80.00      20.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        20 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        42 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       113         14         13 {txt}{c |}{res}       140 
+           {txt}{c |}{res}     80.71      10.00       9.29 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}22{txt}) = {res} 24.2788  {txt} Pr = {res}0.333
+
+{com}. `3fd53764c0d76ac9b4fd38395b70fb91'
+. cap noi graph bar strike, over (geograph) if strike!=0
+{res}{err}option {bf:if} not allowed
+
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `44be1fcc45692b313dab7449388adc89'
+. cap noi graph bar strike if strike!=0, over (geograph)
+{res}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph16.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph16.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `391c0308f96efdc673f4f8d2be4cf082'
+. cap noi graph bar geograph, over (strike if strike!=0)
+{err}if not allowed
+
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `10879a0205340be229d8ab0f2e980f5e'
+. cap noi graph bar strike if strike!=0, over (geograph)
+{res}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph17.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph17.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+
+. `391c0308f96efdc673f4f8d2be4cf082'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph if strike!=0
+
+{txt}{hline}
+-> violence = 0
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        86         11         11 {txt}{c |}{res}       108 
+{txt}         2 {c |}{res}        15          2          0 {txt}{c |}{res}        17 
+{txt}         3 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+{txt}         4 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+{txt}         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+{txt}         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+{txt}         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+{txt}        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+{txt}        20 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+{txt}        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+{txt}        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+{txt}        42 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       113         14         13 {txt}{c |}{res}       140 
+
+{txt}{hline}
+-> violence = 1
+no observations
+
+
+{com}. cap noi graph bar strike, over (geograph) by(violence)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph18.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph18.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `53751117402be77cca57c3708374c4dc'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph if strike!=0, column chi
+
+{txt}{hline}
+-> violence = 0
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}     76.11      78.57      84.62 {txt}{c |}{res}     77.14 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}        15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     13.27      14.29       0.00 {txt}{c |}{res}     12.14 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      1.77       0.00       0.00 {txt}{c |}{res}      1.43 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}      3.54       7.14       0.00 {txt}{c |}{res}      3.57 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       7.69 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       7.69 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        20 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        42 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       113         14         13 {txt}{c |}{res}       140 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}22{txt}) = {res} 24.2788  {txt} Pr = {res}0.333
+
+{txt}{hline}
+-> violence = 1
+no observations
+
+
+{com}. cap noi graph bar strike, over (geograph) by(violence)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph19.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph19.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `5a24f871528b4f8287c3c56ff650d436'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph if strike!=0, column chi
+
+{txt}{hline}
+-> violence = 0
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}     76.11      78.57      84.62 {txt}{c |}{res}     77.14 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}        15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     13.27      14.29       0.00 {txt}{c |}{res}     12.14 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      1.77       0.00       0.00 {txt}{c |}{res}      1.43 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}      3.54       7.14       0.00 {txt}{c |}{res}      3.57 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       7.69 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       7.69 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        20 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        42 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       113         14         13 {txt}{c |}{res}       140 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}22{txt}) = {res} 24.2788  {txt} Pr = {res}0.333
+
+{txt}{hline}
+-> violence = 1
+no observations
+
+
+{com}. cap noi graph bar strike if strike!=0, over (geograph) by(violence)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph20.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph20.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `544ea9cefc4853f18fe195d0e85aceba'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort target: tab strike geograph if strike!=0, column chi
+
+{txt}{hline}
+-> target = 
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}         9          7          1 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     60.00      87.50     100.00 {txt}{c |}{res}     70.83 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     26.67      12.50       0.00 {txt}{c |}{res}     20.83 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      6.67       0.00       0.00 {txt}{c |}{res}      4.17 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      6.67       0.00       0.00 {txt}{c |}{res}      4.17 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        15          8          1 {txt}{c |}{res}        24 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}6{txt}) = {res}  2.6024  {txt} Pr = {res}0.857
+
+{txt}{hline}
+-> target = C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        20          2          6 {txt}{c |}{res}        28 
+           {txt}{c |}{res}     64.52      50.00      75.00 {txt}{c |}{res}     65.12 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         6          1          0 {txt}{c |}{res}         7 
+           {txt}{c |}{res}     19.35      25.00       0.00 {txt}{c |}{res}     16.28 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      3.23       0.00       0.00 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         3          1          0 {txt}{c |}{res}         4 
+           {txt}{c |}{res}      9.68      25.00       0.00 {txt}{c |}{res}      9.30 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00      12.50 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      3.23       0.00       0.00 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00      12.50 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        31          4          8 {txt}{c |}{res}        43 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}12{txt}) = {res} 13.2641  {txt} Pr = {res}0.350
+
+{txt}{hline}
+-> target = C, G
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = C, M
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}         3          1          1 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     75.00     100.00     100.00 {txt}{c |}{res}     83.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}     25.00       0.00       0.00 {txt}{c |}{res}     16.67 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}         4          1          1 {txt}{c |}{res}         6 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res}  0.6000  {txt} Pr = {res}0.741
+
+{txt}{hline}
+-> target = C, S
+no observations
+
+{hline}
+-> target = G
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}   (first) geograph
+    strike {c |}      1.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        33          2 {txt}{c |}{res}        35 
+           {txt}{c |}{res}     84.62     100.00 {txt}{c |}{res}     85.37 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}         3          0 {txt}{c |}{res}         3 
+           {txt}{c |}{res}      7.69       0.00 {txt}{c |}{res}      7.32 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.56       0.00 {txt}{c |}{res}      2.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.56       0.00 {txt}{c |}{res}      2.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        42 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.56       0.00 {txt}{c |}{res}      2.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        39          2 {txt}{c |}{res}        41 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res}  0.3604  {txt} Pr = {res}0.986
+
+{txt}{hline}
+-> target = G, C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = G, M, C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = G, Pr
+no observations
+
+{hline}
+-> target = G, S
+no observations
+
+{hline}
+-> target = L
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         3 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         3 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = L, C
+no observations
+
+{hline}
+-> target = L, G
+no observations
+
+{hline}
+-> target = L, M
+no observations
+
+{hline}
+-> target = L, S
+no observations
+
+{hline}
+-> target = M
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        10          1          1 {txt}{c |}{res}        12 
+           {txt}{c |}{res}     83.33     100.00     100.00 {txt}{c |}{res}     85.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}     16.67       0.00       0.00 {txt}{c |}{res}     14.29 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        12          1          1 {txt}{c |}{res}        14 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res}  0.3889  {txt} Pr = {res}0.823
+
+{txt}{hline}
+-> target = M, C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}     50.00 {txt}{c |}{res}     50.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+        20 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}     50.00 {txt}{c |}{res}     50.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = M, G
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = O
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = Pa
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = Pa,  G
+no observations
+
+{hline}
+-> target = Pr
+no observations
+
+{hline}
+-> target = Pr, G
+no observations
+
+{hline}
+-> target = S
+no observations
+
+{hline}
+-> target = S, C
+no observations
+
+{hline}
+-> target = S, G
+no observations
+
+{hline}
+-> target = S, L
+no observations
+
+{hline}
+-> target = g
+no observations
+
+
+{com}. cap noi graph bar strike if strike!=0, over (geograph) by(violence)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph21.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph21.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `4d2e7507e1cc44ff8c08040dfe264168'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort violence: tab strike geograph if strike!=0, column chi
+
+{txt}{hline}
+-> violence = 0
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}     76.11      78.57      84.62 {txt}{c |}{res}     77.14 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}        15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     13.27      14.29       0.00 {txt}{c |}{res}     12.14 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      1.77       0.00       0.00 {txt}{c |}{res}      1.43 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}      3.54       7.14       0.00 {txt}{c |}{res}      3.57 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       7.69 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       7.69 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        20 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        42 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.88       0.00       0.00 {txt}{c |}{res}      0.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       113         14         13 {txt}{c |}{res}       140 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}22{txt}) = {res} 24.2788  {txt} Pr = {res}0.333
+
+{txt}{hline}
+-> violence = 1
+no observations
+
+
+{com}. cap noi graph bar strike if strike!=0, over (geograph) by(violence)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph22.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph22.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `544ea9cefc4853f18fe195d0e85aceba'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort target: tab strike geograph if strike!=0, column chi
+
+{txt}{hline}
+-> target = 
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}         9          7          1 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     60.00      87.50     100.00 {txt}{c |}{res}     70.83 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     26.67      12.50       0.00 {txt}{c |}{res}     20.83 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      6.67       0.00       0.00 {txt}{c |}{res}      4.17 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      6.67       0.00       0.00 {txt}{c |}{res}      4.17 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        15          8          1 {txt}{c |}{res}        24 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}6{txt}) = {res}  2.6024  {txt} Pr = {res}0.857
+
+{txt}{hline}
+-> target = C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        20          2          6 {txt}{c |}{res}        28 
+           {txt}{c |}{res}     64.52      50.00      75.00 {txt}{c |}{res}     65.12 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         6          1          0 {txt}{c |}{res}         7 
+           {txt}{c |}{res}     19.35      25.00       0.00 {txt}{c |}{res}     16.28 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      3.23       0.00       0.00 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         3          1          0 {txt}{c |}{res}         4 
+           {txt}{c |}{res}      9.68      25.00       0.00 {txt}{c |}{res}      9.30 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00      12.50 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      3.23       0.00       0.00 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00      12.50 {txt}{c |}{res}      2.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        31          4          8 {txt}{c |}{res}        43 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}12{txt}) = {res} 13.2641  {txt} Pr = {res}0.350
+
+{txt}{hline}
+-> target = C, G
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = C, M
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}         3          1          1 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     75.00     100.00     100.00 {txt}{c |}{res}     83.33 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}     25.00       0.00       0.00 {txt}{c |}{res}     16.67 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}         4          1          1 {txt}{c |}{res}         6 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res}  0.6000  {txt} Pr = {res}0.741
+
+{txt}{hline}
+-> target = C, S
+no observations
+
+{hline}
+-> target = G
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}   (first) geograph
+    strike {c |}      1.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        33          2 {txt}{c |}{res}        35 
+           {txt}{c |}{res}     84.62     100.00 {txt}{c |}{res}     85.37 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}         3          0 {txt}{c |}{res}         3 
+           {txt}{c |}{res}      7.69       0.00 {txt}{c |}{res}      7.32 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.56       0.00 {txt}{c |}{res}      2.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.56       0.00 {txt}{c |}{res}      2.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        42 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.56       0.00 {txt}{c |}{res}      2.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        39          2 {txt}{c |}{res}        41 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res}  0.3604  {txt} Pr = {res}0.986
+
+{txt}{hline}
+-> target = G, C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = G, M, C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = G, Pr
+no observations
+
+{hline}
+-> target = G, S
+no observations
+
+{hline}
+-> target = L
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         3 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         3 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = L, C
+no observations
+
+{hline}
+-> target = L, G
+no observations
+
+{hline}
+-> target = L, M
+no observations
+
+{hline}
+-> target = L, S
+no observations
+
+{hline}
+-> target = M
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        10          1          1 {txt}{c |}{res}        12 
+           {txt}{c |}{res}     83.33     100.00     100.00 {txt}{c |}{res}     85.71 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}     16.67       0.00       0.00 {txt}{c |}{res}     14.29 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        12          1          1 {txt}{c |}{res}        14 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res}  0.3889  {txt} Pr = {res}0.823
+
+{txt}{hline}
+-> target = M, C
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}     50.00 {txt}{c |}{res}     50.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+        20 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}     50.00 {txt}{c |}{res}     50.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = M, G
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = O
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = Pa
+
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = Pa,  G
+no observations
+
+{hline}
+-> target = Pr
+no observations
+
+{hline}
+-> target = Pr, G
+no observations
+
+{hline}
+-> target = S
+no observations
+
+{hline}
+-> target = S, C
+no observations
+
+{hline}
+-> target = S, G
+no observations
+
+{hline}
+-> target = S, L
+no observations
+
+{hline}
+-> target = g
+no observations
+
+
+{com}. cap noi graph bar strike if strike!=0, over (geograph) by(target)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph23.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph23.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `292df986a8e0e80718d69fdaea82944f'
+. tab strike target if strike!=0, row chi
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}                                                               TARGET
+    strike {c |}         C       C, G       C, M          G       G, C    G, M, C          L          M       M, C       M, G          O         Pa {c |}     Total
+{hline 11}{c +}{hline 132}{c +}{hline 10}
+         1 {c |}{res}        28          1          5         35          2          1          3         12          1          1          1          1 {txt}{c |}{res}        91 
+           {txt}{c |}{res}     30.77       1.10       5.49      38.46       2.20       1.10       3.30      13.19       1.10       1.10       1.10       1.10 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+         2 {c |}{res}         7          0          0          3          0          0          0          2          0          0          0          0 {txt}{c |}{res}        12 
+           {txt}{c |}{res}     58.33       0.00       0.00      25.00       0.00       0.00       0.00      16.67       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+         3 {c |}{res}         1          0          0          1          0          0          0          0          0          0          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}     50.00       0.00       0.00      50.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+         4 {c |}{res}         4          0          0          1          0          0          0          0          0          0          0          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     80.00       0.00       0.00      20.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+         5 {c |}{res}         0          0          1          0          0          0          0          0          0          0          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+         6 {c |}{res}         1          0          0          0          0          0          0          0          0          0          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+         9 {c |}{res}         1          0          0          0          0          0          0          0          0          0          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+        13 {c |}{res}         1          0          0          0          0          0          0          0          0          0          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+        20 {c |}{res}         0          0          0          0          0          0          0          0          1          0          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00     100.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+        42 {c |}{res}         0          0          0          1          0          0          0          0          0          0          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00       0.00     100.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 132}{c +}{hline 10}
+     Total {c |}{res}        43          1          6         41          2          1          3         14          2          1          1          1 {txt}{c |}{res}       116 
+           {txt}{c |}{res}     37.07       0.86       5.17      35.34       1.72       0.86       2.59      12.07       1.72       0.86       0.86       0.86 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}99{txt}) = {res} 93.2521  {txt} Pr = {res}0.644
+
+{com}. `0653c5b10e1605a51ed2138362113f09'
+. tab strike geograph if strike!=0, row chi
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        86         11         11 {txt}{c |}{res}       108 
+           {txt}{c |}{res}     79.63      10.19      10.19 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}        15          2          0 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     88.24      11.76       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     80.00      20.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        20 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        42 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       113         14         13 {txt}{c |}{res}       140 
+           {txt}{c |}{res}     80.71      10.00       9.29 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}22{txt}) = {res} 24.2788  {txt} Pr = {res}0.333
+
+{com}. `3fd53764c0d76ac9b4fd38395b70fb91'
+. include /home/rub/.stata_kernel_cache/include.do
+{txt}
+{com}. bysort target: tab strike geograph if strike!=0, row chi
+
+{txt}{hline}
+-> target = 
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}         9          7          1 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     52.94      41.18       5.88 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         4          1          0 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     80.00      20.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        21 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        24 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        15          8          1 {txt}{c |}{res}        24 
+           {txt}{c |}{res}     62.50      33.33       4.17 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}6{txt}) = {res}  2.6024  {txt} Pr = {res}0.857
+
+{txt}{hline}
+-> target = C
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        20          2          6 {txt}{c |}{res}        28 
+           {txt}{c |}{res}     71.43       7.14      21.43 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         6          1          0 {txt}{c |}{res}         7 
+           {txt}{c |}{res}     85.71      14.29       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         3 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         4 {c |}{res}         3          1          0 {txt}{c |}{res}         4 
+           {txt}{c |}{res}     75.00      25.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         6 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         9 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+        13 {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        31          4          8 {txt}{c |}{res}        43 
+           {txt}{c |}{res}     72.09       9.30      18.60 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}12{txt}) = {res} 13.2641  {txt} Pr = {res}0.350
+
+{txt}{hline}
+-> target = C, G
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = C, M
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}         3          1          1 {txt}{c |}{res}         5 
+           {txt}{c |}{res}     60.00      20.00      20.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         5 {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}         4          1          1 {txt}{c |}{res}         6 
+           {txt}{c |}{res}     66.67      16.67      16.67 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res}  0.6000  {txt} Pr = {res}0.741
+
+{txt}{hline}
+-> target = C, S
+no observations
+
+{hline}
+-> target = G
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}   (first) geograph
+    strike {c |}      1.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        33          2 {txt}{c |}{res}        35 
+           {txt}{c |}{res}     94.29       5.71 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}         3          0 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        42 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        39          2 {txt}{c |}{res}        41 
+           {txt}{c |}{res}     95.12       4.88 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res}  0.3604  {txt} Pr = {res}0.986
+
+{txt}{hline}
+-> target = G, C
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = G, M, C
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = G, Pr
+no observations
+
+{hline}
+-> target = G, S
+no observations
+
+{hline}
+-> target = L
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         3 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         3 {txt}{c |}{res}         3 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = L, C
+no observations
+
+{hline}
+-> target = L, G
+no observations
+
+{hline}
+-> target = L, M
+no observations
+
+{hline}
+-> target = L, S
+no observations
+
+{hline}
+-> target = M
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+     (sum) {c |}         (first) geograph
+    strike {c |}      1.00       2.00       3.00 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        10          1          1 {txt}{c |}{res}        12 
+           {txt}{c |}{res}     83.33       8.33       8.33 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         2 {c |}{res}         2          0          0 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00       0.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        12          1          1 {txt}{c |}{res}        14 
+           {txt}{c |}{res}     85.71       7.14       7.14 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res}  0.3889  {txt} Pr = {res}0.823
+
+{txt}{hline}
+-> target = M, C
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+        20 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = M, G
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = O
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = Pa
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}  (first)
+     (sum) {c |}  geograph
+    strike {c |}      1.00 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+         1 {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> target = Pa,  G
+no observations
+
+{hline}
+-> target = Pr
+no observations
+
+{hline}
+-> target = Pr, G
+no observations
+
+{hline}
+-> target = S
+no observations
+
+{hline}
+-> target = S, C
+no observations
+
+{hline}
+-> target = S, G
+no observations
+
+{hline}
+-> target = S, L
+no observations
+
+{hline}
+-> target = g
+no observations
+
+
+{com}. cap noi graph bar strike if strike!=0, over (geograph) by(target)
+{res}{txt}
+{com}. if _rc == 0 {c -(}
+.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.svg, width(600) replace
+{txt}(file /home/rub/.stata_kernel_cache/graph24.svg written in SVG format)
+{com}.     noi gr export /home/rub/.stata_kernel_cache/graph$stata_kernel_graph_counter.pdf, replace
+{txt}(file /home/rub/.stata_kernel_cache/graph24.pdf written in PDF format)
+{com}.     global stata_kernel_graph_counter = $stata_kernel_graph_counter + 1
+. {c )-}            
+{txt}
+{com}. . `c3a74ad4d6a48112d314916e839e7c52'
+. 
